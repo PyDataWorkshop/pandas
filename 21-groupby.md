@@ -1,9 +1,6 @@
 
- 
- 
 
-
-Python Pandas - GroupBy
+### Python Pandas - GroupBy
 
 
 Any groupby operation involves one of the following operations on the original object. They are −
@@ -17,6 +14,7 @@ Aggregation − computing a summary statistic
 Transformation − perform some group-specific operation
 Filtration − discarding the data with some condition
 Let us now create a DataFrame object and perform all the operations on it −
+<pre><code>
 #import the pandas library
 import pandas as pd
 
@@ -28,6 +26,7 @@ ipl_data = {'Team': ['Riders', 'Riders', 'Devils', 'Devils', 'Kings',
 df = pd.DataFrame(ipl_data)
 
 print df
+</code></pre>
 Its output is as follows −
     Points   Rank     Team   Year
 0      876      1   Riders   2014
@@ -73,13 +72,17 @@ df = pd.DataFrame(ipl_data)
 
 print df.groupby('Team').groups
 Its output is as follows −
+<pre><code>
 {'Kings': Int64Index([4, 6, 7],      dtype='int64'),
 'Devils': Int64Index([2, 3],         dtype='int64'),
 'Riders': Int64Index([0, 1, 8, 11],  dtype='int64'),
 'Royals': Int64Index([9, 10],        dtype='int64'),
 'kings' : Int64Index([5],            dtype='int64')}
-Example
+</code></pre>
+
+#### Example
 Group by with multiple columns −
+<pre><code>
 # import the pandas library
 import pandas as pd
 ipl_data = {'Team': ['Riders', 'Riders', 'Devils', 'Devils', 'Kings',
@@ -89,7 +92,10 @@ ipl_data = {'Team': ['Riders', 'Riders', 'Devils', 'Devils', 'Kings',
          'Points':[876,789,863,673,741,812,756,788,694,701,804,690]}
 df = pd.DataFrame(ipl_data)
 print df.groupby(['Team','Year']).groups
+</code></pre>
+
 Its output is as follows −
+<pre><code>
 {('Kings', 2014): Int64Index([4], dtype='int64'),
  ('Royals', 2014): Int64Index([9], dtype='int64'),
  ('Riders', 2014): Int64Index([0], dtype='int64'),
@@ -102,7 +108,9 @@ Its output is as follows −
  ('kings', 2015): Int64Index([5], dtype='int64'),
  ('Royals', 2015): Int64Index([10], dtype='int64'),
  ('Kings', 2017): Int64Index([7], dtype='int64')}
-Iterating through Groups
+</code></pre>
+
+##### Iterating through Groups
 With the groupby object in hand, we can iterate through the object similar to itertools.obj.
 # import the pandas library
 import pandas as pd
