@@ -1,80 +1,6 @@
 
- 
- 
+### Python Pandas - Iteration
 
- Jobs
-  Examples
-  Whiteboard
-  Net Meeting
-Tools 
-  Articles
-Facebook
-Google+
-Twitter
-Linkedin
-YouTube
- Home
- Q/A 
-Library 
- Videos 
- Tutors
- Coding Ground 
- Store 
- Search 
-
- 
-Python Pandas Tutorial
-Python Pandas - Home
-Python Pandas - Introduction
-Python Pandas - Environment Setup
-Introduction to Data Structures
-Python Pandas - Series
-Python Pandas - DataFrame
-Python Pandas - Panel
-Python Pandas - Basic Functionality
-Descriptive Statistics
-Function Application
-Python Pandas - Reindexing
-Python Pandas - Iteration
-Python Pandas - Sorting
-Working with Text Data
-Options & Customization
-Indexing & Selecting Data
-Statistical Functions
-Python Pandas - Window Functions
-Python Pandas - Aggregations
-Python Pandas - Missing Data
-Python Pandas - GroupBy
-Python Pandas - Merging/Joining
-Python Pandas - Concatenation
-Python Pandas - Date Functionality
-Python Pandas - Timedelta
-Python Pandas - Categorical Data
-Python Pandas - Visualization
-Python Pandas - IO Tools
-Python Pandas - Sparse Data
-Python Pandas - Caveats & Gotchas
-Comparison with SQL
-Python Pandas Useful Resources
-Python Pandas - Quick Guide
-Python Pandas - Useful Resources
-Python Pandas - Discussion
- 
-Selected Reading
-UPSC IAS Exams Notes
-Developer's Best Practices
-Questions and Answers
-Effective Resume Writing
-HR Interview Questions
-Computer Glossary
-Who is Who
-Python Pandas - Iteration
-
-Advertisements
-
-
- Previous Page 
-Next Page   
 
 
 The behavior of basic iteration over Pandas objects depends on the type. When iterating over a Series, it is regarded as array-like, and basic iteration produces the values. Other data structures, like DataFrame and Panel, follow the dict-like convention of iterating over the keys of the objects.
@@ -82,8 +8,10 @@ In short, basic iteration (for i in object) produces −
 Series − values
 DataFrame − column labels
 Panel − item labels
-Iterating a DataFrame
+
+### Iterating a DataFrame
 Iterating a DataFrame gives column names. Let us consider the following example to understand the same.
+<pre><code>
 import pandas as pd
 import numpy as np
  
@@ -99,6 +27,8 @@ df = pd.DataFrame({
 
 for col in df:
    print col
+</code></pre>
+
 Its output is as follows −
 A
 C
@@ -138,12 +68,14 @@ Name: col3, dtype: float64
 Observe, each column is iterated separately as a key-value pair in a Series.
 iterrows()
 iterrows() returns the iterator yielding each index value along with a series containing the data in each row.
+<pre><code>
 import pandas as pd
 import numpy as np
 
 df = pd.DataFrame(np.random.randn(4,3),columns = ['col1','col2','col3'])
 for row_index,row in df.iterrows():
    print row_index,row
+ </code></pre> 
 Its output is as follows −
 0  col1    1.529759
    col2    0.762811
