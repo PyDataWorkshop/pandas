@@ -1,12 +1,6 @@
 
 Python Pandas - Descriptive Statistics
 
-Advertisements
-
-
- Previous Page 
-Next Page   
-
 
 A large number of methods collectively compute descriptive statistics and other related operations on DataFrame. Most of these are aggregations like sum(), mean(), but some of them, like sumsum(), produce an object of the same size. Generally speaking, these methods take an axis argument, just like ndarray.{sum, std, ...}, but the axis can be specified by name or integer
 DataFrame − “index” (axis=0, default), “columns” (axis=1)
