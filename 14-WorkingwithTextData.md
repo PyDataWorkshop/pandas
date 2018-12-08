@@ -1,11 +1,7 @@
 
 Python Pandas - Working with Text Data
 
-Advertisements
 
-
- Previous Page 
-Next Page   
 
 
 In this chapter, we will discuss the string operations with our basic Series/Index. In the subsequent chapters, we will learn how to apply these string functions on the DataFrame.
