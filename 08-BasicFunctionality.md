@@ -1,11 +1,9 @@
 
+
+```python
 Python Pandas - Basic Functionality
 
-Advertisements
 
-
- Previous Page 
-Next Page   
 
 
 By now, we learnt about the three Pandas DataStructures and how to create them. We will majorly focus on the DataFrame objects because of its importance in the real time data processing and also discuss a few other DataStructures.
@@ -37,6 +35,11 @@ Returns the first n rows.
 8
 tail()
 Returns the last n rows.
+```
+
+
+```python
+
 Let us now create a Series and see all the above tabulated attributes operation.
 Example
 import pandas as pd
@@ -55,6 +58,11 @@ axes
 Returns the list of the labels of the series.
 import pandas as pd
 import numpy as np
+
+```
+
+
+```python
 
 #Create a series with 100 random numbers
 s = pd.Series(np.random.randn(4))
@@ -78,6 +86,11 @@ Is the Object empty?
 False
 ndim
 Returns the number of dimensions of the object. By definition, a Series is a 1D data structure, so it returns 
+
+```
+
+
+```python
 import pandas as pd
 import numpy as np
 
@@ -93,6 +106,11 @@ Its output is as follows −
 2  -0.609712
 3  -1.377000
 dtype: float64
+
+```
+
+
+```python
 
 The dimensions of the object:
 1
@@ -115,6 +133,12 @@ The size of the object:
 2
 values
 Returns the actual data in the series as an array.
+```
+
+
+```python
+
+
 import pandas as pd
 import numpy as np
 
@@ -130,6 +154,11 @@ Its output is as follows −
 2   0.180477
 3  -0.140922
 dtype: float64
+
+```
+
+
+```python
 
 The actual data series is:
 [ 1.78737302 -0.60515881 0.18047664 -0.1409218 ]
@@ -154,6 +183,10 @@ The original series is:
 3  -0.139547
 dtype: float64
 
+```
+
+
+```python
 The first two rows of the data series:
 0   0.720876
 1  -0.765898
@@ -181,6 +214,11 @@ The last two rows of the data series:
 2 -0.608592
 3 -2.341413
 dtype: float64
+```
+
+
+```python
+
 DataFrame Basic Functionality
 Let us now understand what DataFrame Basic Functionality is. The following tables lists down the important attributes or methods that help in DataFrame Basic Functionality.
 S.No.
@@ -217,7 +255,17 @@ Returns the first n rows.
 tail()
 Returns last n rows.
 Let us now create a DataFrame and see all how the above mentioned attributes operate.
+```
+
+
+```python
+
 Example
+```
+
+
+```python
+
 import pandas as pd
 import numpy as np
 
@@ -240,6 +288,10 @@ Our data series is:
 4   30    Steve   3.20
 5   29    Smith   4.60
 6   23    Jack    3.80
+```
+
+
+```python
 T (Transpose)
 Returns the transpose of the DataFrame. The rows and columns will interchange.
 import pandas as pd
@@ -255,6 +307,12 @@ df = pd.DataFrame(d)
 print ("The transpose of the data series is:")
 print df.T
 Its output is as follows −
+```
+
+
+```python
+
+
 The transpose of the data series is:
          0     1       2      3      4      5       6
 Age      25    26      25     23     30     29      23
@@ -274,6 +332,11 @@ d = {'Name':pd.Series(['Tom','James','Ricky','Vin','Steve','Smith','Jack']),
 df = pd.DataFrame(d)
 print ("Row axis labels and column axis labels are:")
 print df.axes
+```
+
+
+```python
+
 Its output is as follows −
 Row axis labels and column axis labels are:
 
@@ -309,6 +372,10 @@ d = {'Name':pd.Series(['Tom','James','Ricky','Vin','Steve','Smith','Jack']),
    'Age':pd.Series([25,26,25,23,30,29,23]),
    'Rating':pd.Series([4.23,3.24,3.98,2.56,3.20,4.6,3.8])}
  
+```
+
+
+```python
 #Create a DataFrame
 df = pd.DataFrame(d)
 print ("Is the object empty?")
@@ -316,6 +383,12 @@ print df.empty
 Its output is as follows −
 Is the object empty?
 False
+```
+
+
+```python
+
+
 ndim
 Returns the number of dimensions of the object. By definition, DataFrame is a 2D object.
 import pandas as pd
@@ -325,6 +398,12 @@ import numpy as np
 d = {'Name':pd.Series(['Tom','James','Ricky','Vin','Steve','Smith','Jack']),
    'Age':pd.Series([25,26,25,23,30,29,23]),
    'Rating':pd.Series([4.23,3.24,3.98,2.56,3.20,4.6,3.8])}
+
+```
+
+
+```python
+
 
 #Create a DataFrame
 df = pd.DataFrame(d)
@@ -347,6 +426,13 @@ The dimension of the object is:
 2
 shape
 Returns a tuple representing the dimensionality of the DataFrame. Tuple (a,b), where a represents the number of rows and b represents the number of columns.
+
+
+
+```
+
+
+```python
 import pandas as pd
 import numpy as np
  
@@ -371,6 +457,10 @@ Our object is:
 4  30    Steve   3.20
 5  29    Smith   4.60
 6  23    Jack    3.80
+```
+
+
+```python
 
 The shape of the object is:
 (7, 3)
@@ -384,6 +474,12 @@ d = {'Name':pd.Series(['Tom','James','Ricky','Vin','Steve','Smith','Jack']),
    'Age':pd.Series([25,26,25,23,30,29,23]),
    'Rating':pd.Series([4.23,3.24,3.98,2.56,3.20,4.6,3.8])}
  
+```
+
+
+```python
+
+
 #Create a DataFrame
 df = pd.DataFrame(d)
 print ("Our object is:")
@@ -401,6 +497,11 @@ Our object is:
 5   29    Smith   4.60
 6   23    Jack    3.80
 
+
+```
+
+
+```python
 The total number of elements in our object is:
 21
 values
@@ -429,6 +530,11 @@ Our object is:
 4   30    Steve   3.20
 5   29    Smith   4.60
 6   23    Jack    3.80
+
+```
+
+
+```python
 The actual data in our data frame is:
 [[25 'Tom' 4.23]
 [26 'James' 3.24]
@@ -439,6 +545,11 @@ The actual data in our data frame is:
 [23 'Jack' 3.8]]
 Head & Tail
 To view a small sample of a DataFrame object, use the head() and tail() methods. head() returns the first n rows (observe the index values). The default number of elements to display is five, but you may pass a custom number.
+
+```
+
+
+```python
 import pandas as pd
 import numpy as np
  
@@ -453,6 +564,11 @@ print ("Our data frame is:")
 print df
 print ("The first two rows of the data frame is:")
 print df.head(2)
+```
+
+
+```python
+
 Its output is as follows −
 Our data frame is:
     Age   Name    Rating
@@ -463,6 +579,11 @@ Our data frame is:
 4   30    Steve   3.20
 5   29    Smith   4.60
 6   23    Jack    3.80
+```
+
+
+```python
+
 
 The first two rows of the data frame is:
    Age   Name   Rating
@@ -483,6 +604,11 @@ print ("Our data frame is:")
 print df
 print ("The last two rows of the data frame is:")
 print df.tail(2)
+
+```
+
+
+```python
 Its output is as follows −
 Our data frame is:
     Age   Name    Rating
@@ -499,4 +625,4 @@ The last two rows of the data frame is:
 5   29    Smith    4.6
 6   23    Jack     3.8
 
-
+```

@@ -1,5 +1,9 @@
 
+
+```python
 Python Pandas - DataFrame
+
+
 
 A Data frame is a two-dimensional data structure, i.e., data is aligned in a tabular fashion in rows and columns.
 Features of DataFrame
@@ -14,6 +18,10 @@ You can think of it as an SQL table or a spreadsheet data representation.
 pandas.DataFrame
 A pandas DataFrame can be created using the following constructor −
 pandas.DataFrame( data, index, columns, dtype, copy)
+```
+
+
+```python
 The parameters of the constructor are as follows −
 S.No
 Parameter & Description
@@ -40,6 +48,10 @@ Series
 Numpy ndarrays
 Another DataFrame
 In the subsequent sections of this chapter, we will see how to create a DataFrame using these inputs.
+```
+
+
+```python
 Create an Empty DataFrame
 A basic DataFrame, which can be created is an Empty Dataframe.
 Example
@@ -75,6 +87,10 @@ Its output is as follows −
 0     Alex      10
 1     Bob       12
 2     Clarke    13
+```
+
+
+```python
 Example 3
 import pandas as pd
 data = [['Alex',10],['Bob',12],['Clarke',13]]
@@ -127,6 +143,10 @@ Its output is as follows −
 0   1   2     NaN
 1   5   10   20.0
 Note − Observe, NaN (Not a Number) is appended in missing areas.
+```
+
+
+```python
 Example 2
 The following example shows how to create a DataFrame by passing a list of dictionaries and the row indices.
 import pandas as pd
@@ -178,6 +198,15 @@ c     3.0    3
 d     NaN    4
 Note − Observe, for the series one, there is no label ‘d’ passed, but in the result, for the d label, NaN is appended with NaN.
 Let us now understand column selection, addition, and deletion through examples.
+```
+
+
+```python
+
+
+
+
+
 Column Selection
 We will understand this by selecting a column from the DataFrame.
 Example
@@ -228,6 +257,12 @@ a     1.0    1    10.0     11.0
 b     2.0    2    20.0     22.0
 c     3.0    3    30.0     33.0
 d     NaN    4     NaN     NaN
+```
+
+
+```python
+
+
 Column Deletion
 Columns can be deleted or popped; let us take an example to understand how.
 Example
@@ -247,6 +282,11 @@ print df
 print ("Deleting the first column using DEL function:")
 del df['one']
 print df
+```
+
+
+```python
+
 
 # using pop function
 print ("Deleting another column using POP function:")
@@ -332,6 +372,12 @@ Its output is as follows −
 1  7  8
 Deletion of Rows
 Use index label to delete or drop rows from a DataFrame. If label is duplicated, then multiple rows will be dropped.
+
+
+```
+
+
+```python
 If you observe, in the above example, the labels are duplicate. Let us drop a label and will see how many rows will get dropped.
 import pandas as pd
 
@@ -352,3 +398,4 @@ In the above example, two rows were dropped because those two contain the same l
 
 
 
+```
