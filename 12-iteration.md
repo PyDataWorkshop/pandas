@@ -1,4 +1,7 @@
 
+
+```python
+
 ### Python Pandas - Iteration
 
 
@@ -8,10 +11,13 @@ In short, basic iteration (for i in object) produces −
 Series − values
 DataFrame − column labels
 Panel − item labels
-
-### Iterating a DataFrame
+Iterating a DataFrame
 Iterating a DataFrame gives column names. Let us consider the following example to understand the same.
-<pre><code>
+
+```
+
+
+```python
 import pandas as pd
 import numpy as np
  
@@ -26,21 +32,30 @@ df = pd.DataFrame({
     })
 
 for col in df:
-   print col
-</code></pre>
+   print(col)
+```
 
-Its output is as follows −
-A
-C
-D
-x
-y
+    A
+    C
+    D
+    x
+    y
+
+
+
+```python
 To iterate over the rows of the DataFrame, we can use the following functions −
 iteritems() − to iterate over the (key,value) pairs
 iterrows() − iterate over the rows as (index,series) pairs
 itertuples() − iterate over the rows as namedtuples
 iteritems()
 Iterates over each column as key, value pair with label as key and column value as a Series object.
+```
+
+
+```python
+
+
 import pandas as pd
 import numpy as np
  
@@ -65,17 +80,25 @@ col3 0   -0.022142
 2    1.160691
 3   -0.830279
 Name: col3, dtype: float64
+```
+
+
+```python
+
 Observe, each column is iterated separately as a key-value pair in a Series.
 iterrows()
 iterrows() returns the iterator yielding each index value along with a series containing the data in each row.
-<pre><code>
+```
+
+
+```python
+
 import pandas as pd
 import numpy as np
 
 df = pd.DataFrame(np.random.randn(4,3),columns = ['col1','col2','col3'])
 for row_index,row in df.iterrows():
    print row_index,row
- </code></pre> 
 Its output is as follows −
 0  col1    1.529759
    col2    0.762811
@@ -96,6 +119,11 @@ Name: 2, dtype: float64
    col3     0.493482
 Name: 3, dtype: float64
 Note − Because iterrows() iterate over the rows, it doesn't preserve the data type across the row. 0,1,2 are the row indices and col1,col2,col3 are column indices.
+
+```
+
+
+```python
 itertuples()
 itertuples() method will return an iterator yielding a named tuple for each row in the DataFrame. The first element of the tuple will be the row’s corresponding index value, while the remaining values are the row values.
 import pandas as pd
@@ -104,6 +132,11 @@ import numpy as np
 df = pd.DataFrame(np.random.randn(4,3),columns = ['col1','col2','col3'])
 for row in df.itertuples():
     print row
+```
+
+
+```python
+
 Its output is as follows −
 Pandas(Index=0, col1=1.5297586201375899, col2=0.76281127433814944, col3=-
 0.6346908238310438)
@@ -117,6 +150,13 @@ Pandas(Index=2, col1=-0.07728664756791935, col2=-0.85855574139699076, col3=-
 Pandas(Index=3, col1=0.65734942534106289, col2=-0.95057710432604969,
 col3=0.80344487462316527)
 Note − Do not try to modify any object while iterating. Iterating is meant for reading and the iterator returns a copy of the original object (a view), thus the changes will not reflect on the original object.
+
+
+
+```
+
+
+```python
 import pandas as pd
 import numpy as np
 
@@ -133,4 +173,4 @@ Its output is as follows −
 3  -1.016509  -0.116580  -0.523158
 Observe, no changes reflected.
 
-
+```

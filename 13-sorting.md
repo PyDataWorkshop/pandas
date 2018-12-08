@@ -1,4 +1,7 @@
 
+
+```python
+
 Python Pandas - Sorting
 
 
@@ -142,3 +145,5 @@ Its output is as follows −
  Previous Page 
 
 
+
+```

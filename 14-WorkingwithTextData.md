@@ -1,6 +1,7 @@
 
-Python Pandas - Working with Text Data
 
+```python
+Python Pandas - Working with Text Data
 
 
 
@@ -8,10 +9,18 @@ In this chapter, we will discuss the string operations with our basic Series/Ind
 Pandas provides a set of string functions which make it easy to operate on string data. Most importantly, these functions ignore (or exclude) missing/NaN values.
 Almost, all of these methods work with Python string functions (refer: https://docs.python.org/3/library/stdtypes.html#string-methods). So, convert the Series Object to String Object and then perform the operation.
 Let us now see how each operation performs.
+                                                                
 S.No
 Function
 Description
-1
+
+```
+
+
+```python
+
+                                                                
+                                                            1
 lower()
 Converts strings in the Series/Index to lower case.
 2
@@ -67,6 +76,12 @@ isupper()
 Checks whether all characters in each string in the Series/Index in upper case or not. Returns Boolean.
 19
 isnumeric()
+```
+
+
+```python
+
+
 Checks whether all characters in each string in the Series/Index are numeric. Returns Boolean.
 Let us now create a Series and see how all the above functions work.
 import pandas as pd
@@ -100,6 +115,11 @@ Its output is as follows −
 5           1234
 6    steve smith
 dtype: object
+```
+
+
+```python
+
 upper()
 import pandas as pd
 import numpy as np
@@ -131,6 +151,11 @@ Its output is as follows −
 5    4.0
 6   10.0
 dtype: float64
+
+```
+
+
+```python
 strip()
 import pandas as pd
 import numpy as np
@@ -187,12 +212,22 @@ import numpy as np
 s = pd.Series(['Tom ', ' William Rick', 'John', 'Alber@t'])
 
 print s.str.get_dummies()
+```
+
+
+```python
+
 Its output is as follows −
    William Rick   Alber@t   John   Tom
 0             0         0      0     1
 1             1         0      0     0
 2             0         0      1     0
 3             0         1      0     0
+```
+
+
+```python
+
 contains ()
 import pandas as pd
 s = pd.Series(['Tom ', ' William Rick', 'John', 'Alber@t'])
@@ -247,6 +282,11 @@ The number of 'm's in each string:
 1    1
 2    0
 3    0
+```
+
+
+```python
+
 startswith(pattern)
 import pandas as pd
 
@@ -310,6 +350,13 @@ Its output is as follows −
 3  aLBER@T
 dtype: object
 islower()
+
+
+
+```
+
+
+```python
 import pandas as pd
 
 s = pd.Series(['Tom', 'William Rick', 'John', 'Alber@t'])
@@ -325,6 +372,12 @@ import pandas as pd
 
 s = pd.Series(['Tom', 'William Rick', 'John', 'Alber@t'])
 
+
+
+```
+
+
+```python
 print s.str.isupper()
 Its output is as follows −
 0  False
@@ -345,5 +398,4 @@ Its output is as follows −
 3  False
 dtype: bool
 
-
-
+```
