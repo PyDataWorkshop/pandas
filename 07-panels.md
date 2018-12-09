@@ -6,10 +6,19 @@ Python Pandas - Panel
 
 A panel is a 3D container of data. The term Panel data is derived from econometrics and is partially responsible for the name pandas − pan(el)-da(ta)-s.
 The names for the 3 axes are intended to give some semantic meaning to describing operations involving panel data. They are −
+
+```
+
+
+```python
 items − axis 0, each item corresponds to a DataFrame contained inside.
 major_axis − axis 1, it is the index (rows) of each of the DataFrames.
 minor_axis − axis 2, it is the columns of each of the DataFrames.
-pandas.Panel()
+```
+
+
+```python
+####  pandas.Panel()
 A Panel can be created using the following constructor −
 pandas.Panel(data, items, major_axis, minor_axis, dtype, copy)
 ```
@@ -34,6 +43,11 @@ copy Copy data. Default, false
 ```python
 Create Panel
 A Panel can be created using multiple ways like −
+```
+
+
+```python
+
 From ndarrays
 From dict of DataFrames
 From 3D ndarray
@@ -124,12 +138,11 @@ data = {'Item1' : pd.DataFrame(np.random.randn(4, 3)),
         'Item2' : pd.DataFrame(np.random.randn(4, 2))}
 p = pd.Panel(data)
 print p['Item1']
-Its output is as follows −
-            0          1          2
-0    0.488224  -0.128637   0.930817
-1    0.417497   0.896681   0.576657
-2   -2.775266   0.571668   0.290082
-3   -0.400538  -0.144234   1.110535
+```
+
+
+```python
+
 We have two items, and we retrieved item1. The result is a DataFrame with 4 rows and 3 columns, which are the Major_axis and Minor_axis dimensions.
 
 ```
@@ -138,6 +151,11 @@ We have two items, and we retrieved item1. The result is a DataFrame with 4 rows
 ```python
 Using major_axis
 Data can be accessed using the method panel.major_axis(index).
+```
+
+
+```python
+
 # creating an empty panel
 import pandas as pd
 import numpy as np

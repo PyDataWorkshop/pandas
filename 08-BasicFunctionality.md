@@ -39,7 +39,6 @@ Returns the last n rows.
 
 
 ```python
-
 Let us now create a Series and see all the above tabulated attributes operation.
 Example
 import pandas as pd
@@ -48,6 +47,12 @@ import numpy as np
 #Create a series with 100 random numbers
 s = pd.Series(np.random.randn(4))
 print s
+```
+
+
+```python
+
+
 Its output is as follows −
 0   0.967853
 1  -0.148368
@@ -63,7 +68,6 @@ import numpy as np
 
 
 ```python
-
 #Create a series with 100 random numbers
 s = pd.Series(np.random.randn(4))
 print ("The axes are:")
@@ -74,19 +78,6 @@ The axes are:
 The above result is a compact format of a list of values from 0 to 5, i.e., [0,1,2,3,4].
 empty
 Returns the Boolean value saying whether the Object is empty or not. True indicates that the object is empty.
-import pandas as pd
-import numpy as np
-
-#Create a series with 100 random numbers
-s = pd.Series(np.random.randn(4))
-print ("Is the Object empty?")
-print s.empty
-Its output is as follows −
-Is the Object empty?
-False
-ndim
-Returns the number of dimensions of the object. By definition, a Series is a 1D data structure, so it returns 
-
 ```
 
 
@@ -106,6 +97,25 @@ Its output is as follows −
 2  -0.609712
 3  -1.377000
 dtype: float64
+
+```
+
+
+```python
+
+
+import pandas as pd
+import numpy as np
+
+#Create a series with 100 random numbers
+s = pd.Series(np.random.randn(4))
+print ("Is the Object empty?")
+print s.empty
+Its output is as follows −
+Is the Object empty?
+False
+ndim
+Returns the number of dimensions of the object. By definition, a Series is a 1D data structure, so it returns 
 
 ```
 
@@ -199,6 +209,11 @@ import numpy as np
 s = pd.Series(np.random.randn(4))
 print ("The original series is:")
 print s
+```
+
+
+```python
+
 
 print ("The last two rows of the data series:")
 print s.tail(2)
@@ -221,7 +236,12 @@ dtype: float64
 
 DataFrame Basic Functionality
 Let us now understand what DataFrame Basic Functionality is. The following tables lists down the important attributes or methods that help in DataFrame Basic Functionality.
-S.No.
+
+```
+
+
+```python
+.No.
 Attribute or Method
 Description
 1

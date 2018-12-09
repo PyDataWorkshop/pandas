@@ -11,10 +11,20 @@ Potentially columns are of different types
 Size – Mutable
 Labeled axes (rows and columns)
 Can Perform Arithmetic operations on rows and columns
+```
+
+
+```python
+
 Structure
 Let us assume that we are creating a data frame with student’s data.
  
 You can think of it as an SQL table or a spreadsheet data representation.
+```
+
+
+```python
+
 pandas.DataFrame
 A pandas DataFrame can be created using the following constructor −
 pandas.DataFrame( data, index, columns, dtype, copy)
@@ -40,6 +50,11 @@ Data type of each column.
 4
 copy
 This command (or whatever it is) is used for copying of data, if the default is False.
+```
+
+
+```python
+
 Create DataFrame
 A pandas DataFrame can be created using various inputs like −
 Lists
@@ -55,6 +70,11 @@ In the subsequent sections of this chapter, we will see how to create a DataFram
 Create an Empty DataFrame
 A basic DataFrame, which can be created is an Empty Dataframe.
 Example
+
+```
+
+
+```python
 #import the pandas library and aliasing as pd
 import pandas as pd
 df = pd.DataFrame()
@@ -65,6 +85,11 @@ Columns: []
 Index: []
 Create a DataFrame from Lists
 The DataFrame can be created using a single list or a list of lists.
+```
+
+
+```python
+
 Example 1
 import pandas as pd
 data = [1,2,3,4,5]
@@ -102,6 +127,11 @@ Its output is as follows −
 1     Bob      12.0
 2     Clarke   13.0
 Note − Observe, the dtype parameter changes the type of Age column to floating point.
+```
+
+
+```python
+
 Create a DataFrame from Dict of ndarrays / Lists
 All the ndarrays must be of same length. If index is passed, then the length of the index should equal to the length of the arrays.
 If no index is passed, then by default, index will be range(n), where n is the array length.
@@ -117,6 +147,10 @@ Its output is as follows −
 2     29      Steve
 3     42      Ricky
 Note − Observe the values 0,1,2,3. They are the default index assigned to each using the function range(n).
+```
+
+
+```python
 Example 2
 Let us now create an indexed DataFrame using arrays.
 import pandas as pd
@@ -132,8 +166,19 @@ rank4    42    Ricky
 Note − Observe, the index parameter assigns an index to each row.
 Create a DataFrame from List of Dicts
 List of Dictionaries can be passed as input data to create a DataFrame. The dictionary keys are by default taken as column names.
+```
+
+
+```python
+
+
 Example 1
 The following example shows how to create a DataFrame by passing a list of dictionaries.
+
+```
+
+
+```python
 import pandas as pd
 data = [{'a': 1, 'b': 2},{'a': 5, 'b': 10, 'c': 20}]
 df = pd.DataFrame(data)
@@ -164,7 +209,10 @@ data = [{'a': 1, 'b': 2},{'a': 5, 'b': 10, 'c': 20}]
 
 #With two column indices, values same as dictionary keys
 df1 = pd.DataFrame(data, index=['first', 'second'], columns=['a', 'b'])
+```
 
+
+```python
 #With two column indices with one index with other name
 df2 = pd.DataFrame(data, index=['first', 'second'], columns=['a', 'b1'])
 print df1
@@ -183,6 +231,13 @@ Note − Observe, df2 DataFrame is created with a column index other than the di
 Create a DataFrame from Dict of Series
 Dictionary of Series can be passed to form a DataFrame. The resultant index is the union of all the series indexes passed.
 Example
+```
+
+
+```python
+
+
+
 import pandas as pd
 
 d = {'one' : pd.Series([1, 2, 3], index=['a', 'b', 'c']),
@@ -202,11 +257,6 @@ Let us now understand column selection, addition, and deletion through examples.
 
 
 ```python
-
-
-
-
-
 Column Selection
 We will understand this by selecting a column from the DataFrame.
 Example
@@ -223,6 +273,11 @@ b     2.0
 c     3.0
 d     NaN
 Name: one, dtype: float64
+```
+
+
+```python
+
 Column Addition
 We will understand this by adding a new column to an existing data frame.
 Example
@@ -261,8 +316,6 @@ d     NaN    4     NaN     NaN
 
 
 ```python
-
-
 Column Deletion
 Columns can be deleted or popped; let us take an example to understand how.
 Example
@@ -277,6 +330,13 @@ d = {'one' : pd.Series([1, 2, 3], index=['a', 'b', 'c']),
 df = pd.DataFrame(d)
 print ("Our dataframe is:")
 print df
+```
+
+
+```python
+
+
+
 
 # using del function
 print ("Deleting the first column using DEL function:")
@@ -286,7 +346,6 @@ print df
 
 
 ```python
-
 
 # using pop function
 print ("Deleting another column using POP function:")
@@ -313,6 +372,12 @@ a  10.0
 b  20.0
 c  30.0
 d  NaN
+```
+
+
+```python
+
+
 Row Selection, Addition, and Deletion
 We will now understand row selection, addition and deletion through examples. Let us begin with the concept of selection.
 Selection by Label
@@ -328,6 +393,11 @@ Its output is as follows −
 one 2.0
 two 2.0
 Name: b, dtype: float64
+```
+
+
+```python
+
 The result is a series with labels as column names of the DataFrame. And, the Name of the series is the label with which it is retrieved.
 Selection by integer location
 Rows can be selected by passing integer location to an iloc function.
@@ -338,6 +408,11 @@ d = {'one' : pd.Series([1, 2, 3], index=['a', 'b', 'c']),
 
 df = pd.DataFrame(d)
 print df.iloc[2]
+```
+
+
+```python
+
 Its output is as follows −
 one   3.0
 two   3.0
@@ -355,6 +430,11 @@ Its output is as follows −
       one    two
 c     3.0     3
 d     NaN     4
+```
+
+
+```python
+
 Addition of Rows
 Add new rows to a DataFrame using the append function. This function will append the rows at the end.
 import pandas as pd
