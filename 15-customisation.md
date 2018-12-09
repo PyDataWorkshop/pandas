@@ -1,80 +1,15 @@
 
- 
- 
 
- Jobs
+```python
+Jobs
   Examples
   Whiteboard
   Net Meeting
 Tools 
   Articles
-Facebook
-Google+
-Twitter
-Linkedin
-YouTube
- Home
- Q/A 
-Library 
- Videos 
- Tutors
- Coding Ground 
- Store 
- Search 
 
- 
-Python Pandas Tutorial
-Python Pandas - Home
-Python Pandas - Introduction
-Python Pandas - Environment Setup
-Introduction to Data Structures
-Python Pandas - Series
-Python Pandas - DataFrame
-Python Pandas - Panel
-Python Pandas - Basic Functionality
-Descriptive Statistics
-Function Application
-Python Pandas - Reindexing
-Python Pandas - Iteration
-Python Pandas - Sorting
-Working with Text Data
-Options & Customization
-Indexing & Selecting Data
-Statistical Functions
-Python Pandas - Window Functions
-Python Pandas - Aggregations
-Python Pandas - Missing Data
-Python Pandas - GroupBy
-Python Pandas - Merging/Joining
-Python Pandas - Concatenation
-Python Pandas - Date Functionality
-Python Pandas - Timedelta
-Python Pandas - Categorical Data
-Python Pandas - Visualization
-Python Pandas - IO Tools
-Python Pandas - Sparse Data
-Python Pandas - Caveats & Gotchas
-Comparison with SQL
-Python Pandas Useful Resources
-Python Pandas - Quick Guide
-Python Pandas - Useful Resources
-Python Pandas - Discussion
- 
-Selected Reading
-UPSC IAS Exams Notes
-Developer's Best Practices
-Questions and Answers
-Effective Resume Writing
-HR Interview Questions
-Computer Glossary
-Who is Who
 Python Pandas - Options and Customization
 
-Advertisements
-
-
- Previous Page 
-Next Page   
 
 
 Pandas provide API to customize some aspects of its behavior, display is being mostly used.
@@ -89,12 +24,22 @@ get_option(param)
 get_option takes a single parameter and returns the value as given in the output below −
 display.max_rows
 Displays the default number of value. Interpreter reads this value and displays the rows with this value as upper limit to display.
+```
+
+
+```python
+
 import pandas as pd
 print pd.get_option("display.max_rows")
 Its output is as follows −
 60
 display.max_columns
 Displays the default number of value. Interpreter reads this value and displays the rows with this value as upper limit to display.
+
+```
+
+
+```python
 import pandas as pd
 print pd.get_option("display.max_columns")
 Its output is as follows −
@@ -104,6 +49,11 @@ set_option(param,value)
 set_option takes two arguments and sets the value to the parameter as shown below −
 display.max_rows
 Using set_option(), we can change the default number of rows to be displayed.
+```
+
+
+```python
+
 import pandas as pd
 
 pd.set_option("display.max_rows",80)
@@ -112,6 +62,10 @@ print pd.get_option("display.max_rows")
 Its output is as follows −
 80
 display.max_rows
+```
+
+
+```python
 Using set_option(), we can change the default number of rows to be displayed.
 import pandas as pd
 
@@ -124,6 +78,13 @@ reset_option(param)
 reset_option takes an argument and sets the value back to the default value.
 display.max_rows
 Using reset_option(), we can change the value back to the default number of rows to be displayed.
+```
+
+
+```python
+
+ 
+
 import pandas as pd
 
 pd.reset_option("display.max_rows")
@@ -132,10 +93,19 @@ Its output is as follows −
 60
 describe_option(param)
 describe_option prints the description of the argument.
+```
+
+
+```python
 display.max_rows
 Using reset_option(), we can change the value back to the default number of rows to be displayed.
 import pandas as pd
 pd.describe_option("display.max_rows")
+```
+
+
+```python
+
 Its output is as follows −
 display.max_rows : int
    If max_rows is exceeded, switch to truncate view. Depending on
@@ -149,6 +119,10 @@ display.max_rows : int
    IDLE do not run in a terminal and hence it is not possible to do
    correct auto-detection.
    [default: 60] [currently: 60]
+```
+
+
+```python
 option_context()
 option_context context manager is used to set the option in with statement temporarily. Option values are restored automatically when you exit the with block −
 display.max_rows
@@ -161,6 +135,16 @@ Its output is as follows −
 10
 10
 See, the difference between the first and the second print statements. The first statement prints the value set by option_context() which is temporary within the with context itself. After the with context, the second print statement prints the configured value.
+
+```
+
+
+```python
+
+ 
+ 
+
+
 Frequently used Parameters
 S.No
 Parameter
@@ -181,18 +165,6 @@ Displays maximum column width
 display.precision
 Displays precision for decimal numbers
 
- Previous Page 
- Print 
-Next Page   
-
-Advertisements
-
-      
 
 
-
- 
-FAQ's Cookies Policy Contact 
-© Copyright 2018. All Rights Reserved.
- go 
-
+```

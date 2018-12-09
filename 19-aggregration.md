@@ -1,12 +1,17 @@
 
+
+```python
 Python Pandas - Aggregations
 
 
-
-
 Once the rolling, expanding and ewm objects are created, several methods are available to perform aggregations on data.
-Applying Aggregations on DataFrame
+
+### Applying Aggregations on DataFrame
 Let us create a DataFrame and apply aggregations on it.
+```
+
+
+```python
 import pandas as pd
 import numpy as np
 
@@ -14,7 +19,27 @@ df = pd.DataFrame(np.random.randn(10, 4),
       index = pd.date_range('1/1/2000', periods=10),
       columns = ['A', 'B', 'C', 'D'])
 
-print df
+print(df)
+```
+
+                       A         B         C         D
+    2000-01-01  0.728657 -0.273662 -1.646810 -0.778104
+    2000-01-02 -0.469654  1.189049  0.621048  0.148695
+    2000-01-03 -0.655861  0.001840  0.975640  0.141854
+    2000-01-04 -0.463715 -0.064318 -0.612298  1.074035
+    2000-01-05  1.388028  1.117099  0.349530 -0.721665
+    2000-01-06 -0.779084 -1.073337  0.736998 -0.000084
+    2000-01-07  0.881147 -0.525484  0.244523  0.986636
+    2000-01-08 -0.524209  0.431319 -0.833269  0.521756
+    2000-01-09  2.283410 -0.412056 -0.067427  0.334348
+    2000-01-10 -0.533511  0.640480  0.344893 -0.056945
+
+
+
+```python
+
+
+
 
 r = df.rolling(window=3,min_periods=1)
 print r
@@ -33,6 +58,11 @@ Its output is as follows −
 
 Rolling [window=3,min_periods=1,center=False,axis=0]                
 We can aggregate by passing a function to the entire DataFrame, or select a column via the standard get item method.
+```
+
+
+```python
+
 Apply Aggregation on a Whole Dataframe
 import pandas as pd
 import numpy as np
@@ -44,30 +74,11 @@ print df
 
 r = df.rolling(window=3,min_periods=1)
 print r.aggregate(np.sum)
-Its output is as follows −
-                    A           B           C           D
-2000-01-01   1.088512   -0.650942   -2.547450   -0.566858
-2000-01-02   1.879182   -1.038796   -3.215581   -0.299575
-2000-01-03   1.303660   -2.003821   -3.155154   -2.479355
-2000-01-04   1.884801   -0.141119   -0.862400   -0.483331
-2000-01-05   1.194699    0.010551    0.297378   -1.216695
-2000-01-06   1.925393    1.968551   -0.968183    1.284044
-2000-01-07   0.565208    0.032738   -2.125934    0.482797
-2000-01-08   0.564129   -0.759118   -2.454374   -0.325454
-2000-01-09   2.048458   -1.820537   -0.535232   -1.212381
-2000-01-10   2.065750    0.383357    1.541496   -3.201469
+```
 
-                    A           B           C           D
-2000-01-01   1.088512   -0.650942   -2.547450   -0.566858
-2000-01-02   1.879182   -1.038796   -3.215581   -0.299575
-2000-01-03   1.303660   -2.003821   -3.155154   -2.479355
-2000-01-04   1.884801   -0.141119   -0.862400   -0.483331
-2000-01-05   1.194699    0.010551    0.297378   -1.216695
-2000-01-06   1.925393    1.968551   -0.968183    1.284044
-2000-01-07   0.565208    0.032738   -2.125934    0.482797
-2000-01-08   0.564129   -0.759118   -2.454374   -0.325454
-2000-01-09   2.048458   -1.820537   -0.535232   -1.212381
-2000-01-10   2.065750    0.383357    1.541496   -3.201469
+
+```python
+
 Apply Aggregation on a Single Column of a Dataframe
 import pandas as pd
 import numpy as np
@@ -78,6 +89,10 @@ df = pd.DataFrame(np.random.randn(10, 4),
 print df
 r = df.rolling(window=3,min_periods=1)
 print r['A'].aggregate(np.sum)
+```
+
+
+```python
 Its output is as follows −
                  A           B           C           D
 2000-01-01   1.088512   -0.650942   -2.547450   -0.566858
@@ -100,6 +115,10 @@ Its output is as follows −
 2000-01-08   0.564129
 2000-01-09   2.048458
 2000-01-10   2.065750
+```
+
+
+```python
 Freq: D, Name: A, dtype: float64
 Apply Aggregation on Multiple Columns of a DataFrame
 import pandas as pd
@@ -111,6 +130,13 @@ df = pd.DataFrame(np.random.randn(10, 4),
 print df
 r = df.rolling(window=3,min_periods=1)
 print r[['A','B']].aggregate(np.sum)
+```
+
+
+```python
+
+
+
 Its output is as follows −
                  A           B           C           D
 2000-01-01   1.088512   -0.650942   -2.547450   -0.566858
@@ -203,6 +229,15 @@ Its output is as follows −
 2000-01-08   0.564129   0.188043   -0.759118   -0.253039
 2000-01-09   2.048458   0.682819   -1.820537   -0.606846
 2000-01-10   2.065750   0.688583    0.383357    0.127786
+
+
+
+
+
+```
+
+
+```python
 Apply Different Functions to Different Columns of a Dataframe
 import pandas as pd
 import numpy as np
@@ -223,6 +258,4 @@ Its output is as follows −
 2000-01-01  -1.575749  -1.018105
 2000-01-02  -1.740666  -1.189587
 2000-01-03  -0.482555  -0.447078
-
-
-
+```

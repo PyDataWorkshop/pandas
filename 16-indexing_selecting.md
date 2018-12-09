@@ -1,24 +1,20 @@
 
+
+```python
 Python Pandas - Indexing and Selecting Data
 
-Advertisements
-
-
- Previous Page 
-Next Page   
 
 
 In this chapter, we will discuss how to slice and dice the date and generally get the subset of pandas object.
 The Python and NumPy indexing operators "[ ]" and attribute operator "." provide quick and easy access to Pandas data structures across a wide range of use cases. However, since the type of the data to be accessed isn’t known in advance, directly using standard operators has some optimization limits. For production code, we recommend that you take advantage of the optimized pandas data access methods explained in this chapter.
 Pandas now supports three types of Multi-axes indexing; the three types are mentioned in the following table −
 Indexing
-Description
-.loc()
-Label based
-.iloc()
-Integer based
-.ix()
-Both Label and Integer based
+
+#### Description
+* .loc() Label based
+* .iloc() Integer based
+* .ix() Both Label and Integer based
+
 .loc()
 Pandas provide various methods to have purely label based indexing. When slicing, the start bound is also included. Integers are valid labels, but they refer to the label and not the position.
 .loc() has multiple access methods like −
@@ -28,6 +24,11 @@ A slice object
 A Boolean array
 loc takes two single/list/range operator separated by ','. The first one indicates the row and the second one indicates columns.
 Example 1
+```
+
+
+```python
+
 #import the pandas library and aliasing as pd
 import pandas as pd
 import numpy as np
@@ -67,6 +68,12 @@ e    2.202797    0.528067
 f    0.613709    0.286414
 g    1.050559    0.216526
 h    1.122680   -1.621420
+```
+
+
+```python
+
+
 Example 3
 # import the pandas library and aliasing as pd
 import pandas as pd
@@ -103,6 +110,11 @@ e    2.202797   -2.315915   0.528067   0.612482
 f    0.613709   -0.157674   0.286414  -0.500517
 g    1.050559   -2.272099   0.216526   0.928449
 h    1.122680    0.324368  -1.621420  -0.741470
+```
+
+
+```python
+
 Example 5
 # import the pandas library and aliasing as pd
 import pandas as pd
@@ -140,6 +152,11 @@ Its output is as follows −
 1  -0.685354   0.890791   -0.813012    0.631615
 2  -0.783192  -0.531378    0.025070    0.230806
 3   0.539042  -1.284314    0.826977   -0.026251
+```
+
+
+```python
+
 Example 2
 import pandas as pd
 import numpy as np
@@ -206,6 +223,11 @@ Its output is as follows −
 1  -0.685354   0.890791   -0.813012    0.631615
 2  -0.783192  -0.531378    0.025070    0.230806
 3   0.539042  -1.284314    0.826977   -0.026251
+```
+
+
+```python
+
 Example 2
 import pandas as pd
 import numpy as np
@@ -281,6 +303,12 @@ Columns: [A, B, C, D]
 Index: []
 Attribute Access
 Columns can be selected using the attribute operator '.'.
+
+
+```
+
+
+```python
 Example
 import pandas as pd
 import numpy as np
@@ -299,17 +327,4 @@ Its output is as follows −
 Name: A, dtype: float64
 
  Previous Page 
- Print 
-Next Page   
-
-Advertisements
-
-      
-
-
-
- 
-FAQ's Cookies Policy Contact 
-© Copyright 2018. All Rights Reserved.
- go 
-
+```
