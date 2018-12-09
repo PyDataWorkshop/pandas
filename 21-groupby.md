@@ -1,11 +1,6 @@
 
 
 ```python
-
- 
- 
-
-
 Python Pandas - GroupBy
 
 
@@ -20,6 +15,10 @@ Aggregation − computing a summary statistic
 Transformation − perform some group-specific operation
 Filtration − discarding the data with some condition
 Let us now create a DataFrame object and perform all the operations on it −
+```
+
+
+```python
 #import the pandas library
 import pandas as pd
 
@@ -65,6 +64,12 @@ df = pd.DataFrame(ipl_data)
 print df.groupby('Team')
 Its output is as follows −
 <pandas.core.groupby.DataFrameGroupBy object at 0x7fa46a977e50>
+```
+
+
+```python
+
+
 View Groups
 # import the pandas library
 import pandas as pd
@@ -75,12 +80,27 @@ ipl_data = {'Team': ['Riders', 'Riders', 'Devils', 'Devils', 'Kings',
 df = pd.DataFrame(ipl_data)
 
 print df.groupby('Team').groups
+```
+
+
+```python
+
+
+
+
 Its output is as follows −
 {'Kings': Int64Index([4, 6, 7],      dtype='int64'),
 'Devils': Int64Index([2, 3],         dtype='int64'),
 'Riders': Int64Index([0, 1, 8, 11],  dtype='int64'),
 'Royals': Int64Index([9, 10],        dtype='int64'),
 'kings' : Int64Index([5],            dtype='int64')}
+```
+
+
+```python
+
+ 
+ 
 Example
 Group by with multiple columns −
 # import the pandas library
@@ -105,6 +125,11 @@ Its output is as follows −
  ('kings', 2015): Int64Index([5], dtype='int64'),
  ('Royals', 2015): Int64Index([10], dtype='int64'),
  ('Kings', 2017): Int64Index([7], dtype='int64')}
+```
+
+
+```python
+
 Iterating through Groups
 With the groupby object in hand, we can iterate through the object similar to itertools.obj.
 # import the pandas library
@@ -146,6 +171,10 @@ Its output is as follows −
    Points  Rank    Team   Year
 7     788     1   Kings   2017
 11    690     2  Riders   2017
+```
+
+
+```python
 By default, the groupby object has the same label name as the group name.
 Select a Group
 Using the get_group() method, we can select a single group.
@@ -167,49 +196,10 @@ Its output is as follows −
 2     863     2   Devils    2014
 4     741     3   Kings     2014
 9     701     4   Royals    2014
-Aggregations
-An aggregated function returns a single aggregated value for each group. Once the group by object is created, several aggregation operations can be performed on the grouped data.
-An obvious one is aggregation via the aggregate or equivalent agg method −
-# import the pandas library
-import pandas as pd
-import numpy as np
+```
 
-ipl_data = {'Team': ['Riders', 'Riders', 'Devils', 'Devils', 'Kings',
-         'kings', 'Kings', 'Kings', 'Riders', 'Royals', 'Royals', 'Riders'],
-         'Rank': [1, 2, 2, 3, 3,4 ,1 ,1,2 , 4,1,2],
-         'Year': [2014,2015,2014,2015,2014,2015,2016,2017,2016,2014,2015,2017],
-         'Points':[876,789,863,673,741,812,756,788,694,701,804,690]}
-df = pd.DataFrame(ipl_data)
 
-grouped = df.groupby('Year')
-print grouped['Points'].agg(np.mean)
-Its output is as follows −
-Year
-2014   795.25
-2015   769.50
-2016   725.00
-2017   739.00
-Name: Points, dtype: float64
-Another way to see the size of each group is by applying the size() function −
-import pandas as pd
-import numpy as np
-
-ipl_data = {'Team': ['Riders', 'Riders', 'Devils', 'Devils', 'Kings',
-         'kings', 'Kings', 'Kings', 'Riders', 'Royals', 'Royals', 'Riders'],
-         'Rank': [1, 2, 2, 3, 3,4 ,1 ,1,2 , 4,1,2],
-         'Year': [2014,2015,2014,2015,2014,2015,2016,2017,2016,2014,2015,2017],
-         'Points':[876,789,863,673,741,812,756,788,694,701,804,690]}
-df = pd.DataFrame(ipl_data)
-grouped = df.groupby('Team')
-print grouped.agg(np.size)
-Its output is as follows −
-         Points   Rank   Year
-Team
-Devils        2      2      2
-Kings         3      3      3
-Riders        4      4      4
-Royals        2      2      2
-kings         1      1      1
+```python
 Applying Multiple Aggregation Functions at Once
 With grouped Series, you can also pass a list or dict of functions to do aggregation with, and generate DataFrame as output −
 # import the pandas library
@@ -262,6 +252,66 @@ Its output is as follows −
 9  -7.071068     7.071068   -7.071068
 10  7.071068    -7.071068    7.071068
 11 -8.157595     5.000000   11.618950
+
+```
+
+
+```python
+
+Aggregations
+An aggregated function returns a single aggregated value for each group. Once the group by object is created, several aggregation operations can be performed on the grouped data.
+An obvious one is aggregation via the aggregate or equivalent agg method −
+# import the pandas library
+import pandas as pd
+import numpy as np
+
+ipl_data = {'Team': ['Riders', 'Riders', 'Devils', 'Devils', 'Kings',
+         'kings', 'Kings', 'Kings', 'Riders', 'Royals', 'Royals', 'Riders'],
+         'Rank': [1, 2, 2, 3, 3,4 ,1 ,1,2 , 4,1,2],
+         'Year': [2014,2015,2014,2015,2014,2015,2016,2017,2016,2014,2015,2017],
+         'Points':[876,789,863,673,741,812,756,788,694,701,804,690]}
+df = pd.DataFrame(ipl_data)
+
+grouped = df.groupby('Year')
+print grouped['Points'].agg(np.mean)
+Its output is as follows −
+Year
+2014   795.25
+2015   769.50
+2016   725.00
+2017   739.00
+Name: Points, dtype: float64
+```
+
+
+```python
+
+
+Another way to see the size of each group is by applying the size() function −
+import pandas as pd
+import numpy as np
+
+ipl_data = {'Team': ['Riders', 'Riders', 'Devils', 'Devils', 'Kings',
+         'kings', 'Kings', 'Kings', 'Riders', 'Royals', 'Royals', 'Riders'],
+         'Rank': [1, 2, 2, 3, 3,4 ,1 ,1,2 , 4,1,2],
+         'Year': [2014,2015,2014,2015,2014,2015,2016,2017,2016,2014,2015,2017],
+         'Points':[876,789,863,673,741,812,756,788,694,701,804,690]}
+df = pd.DataFrame(ipl_data)
+grouped = df.groupby('Team')
+print grouped.agg(np.size)
+Its output is as follows −
+         Points   Rank   Year
+Team
+Devils        2      2      2
+Kings         3      3      3
+Riders        4      4      4
+Royals        2      2      2
+kings         1      1      1
+
+```
+
+
+```python
 Filtration
 Filtration filters the data on a defined criteria and returns the subset of data. The filter() function is used to filter the data.
 import pandas as pd
