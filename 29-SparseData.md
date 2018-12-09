@@ -1,34 +1,52 @@
 
+
 Python Pandas - Sparse Data
 
 
 
 
 Sparse objects are “compressed” when any data matching a specific value (NaN / missing value, though any value can be chosen) is omitted. A special SparseIndex object tracks where data has been “sparsified”. This will make much more sense in an example. All of the standard Pandas data structures apply the to_sparse method −
+
+
+
+```python
 import pandas as pd
 import numpy as np
 
 ts = pd.Series(np.random.randn(10))
 ts[2:-2] = np.nan
 sts = ts.to_sparse()
-print sts
-Its output is as follows −
-0   -0.810497
-1   -1.419954
-2         NaN
-3         NaN
-4         NaN
-5         NaN
-6         NaN
-7         NaN
-8    0.439240
-9   -1.095910
-dtype: float64
+print(sts)
+```
+
+    0   -1.097459
+    1    0.937604
+    2         NaN
+    3         NaN
+    4         NaN
+    5         NaN
+    6         NaN
+    7         NaN
+    8   -0.460228
+    9    0.190611
+    dtype: float64
+    BlockIndex
+    Block locations: array([0, 8], dtype=int32)
+    Block lengths: array([2, 2], dtype=int32)
+
+
+
+```python
 BlockIndex
 Block locations: array([0, 8], dtype=int32)
 Block lengths: array([2, 2], dtype=int32)
 The sparse objects exist for memory efficiency reasons.
 Let us now assume you had a large NA DataFrame and execute the following code −
+```
+
+
+```python
+
 import pandas as pd
 import numpy as np
 
@@ -40,6 +58,12 @@ print sdf.density
 Its output is as follows −
    0.0001
 Any sparse object can be converted back to the standard dense form by calling to_dense −
+```
+
+
+```python
+
+
 import pandas as pd
 import numpy as np
 ts = pd.Series(np.random.randn(10))
@@ -58,6 +82,11 @@ Its output is as follows −
 8    0.439240
 9   -1.095910
 dtype: float64
+```
+
+
+```python
+
 Sparse Dtypes
 Sparse data should have the same dtype as its dense representation. Currently, float64, int64 and booldtypes are supported. Depending on the original dtype, fill_value default changes −
 float64 − np.nan
@@ -83,3 +112,5 @@ dtype: float64
 2   NaN
 dtype: float64
 
+
+```

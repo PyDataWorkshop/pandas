@@ -1,14 +1,25 @@
 
+
+```python
 Python Pandas - Comparison with SQL
 
 
 
 Since many potential Pandas users have some familiarity with SQL, this page is meant to provide some examples of how various SQL operations can be performed using pandas.
+
+```
+
+
+```python
 import pandas as pd
-url = 'https://raw.github.com/pandasdev/
-pandas/master/pandas/tests/data/tips.csv'
+url = 'https://raw.github.com/pandasdev/pandas/master/pandas/tests/data/tips.csv'
 tips=pd.read_csv(url)
 print tips.head()
+```
+
+
+```python
+
 Its output is as follows −
     total_bill   tip      sex  smoker  day     time  size
 0        16.99  1.01   Female      No  Sun  Dinner      2
@@ -24,6 +35,10 @@ LIMIT 5;
 With Pandas, column selection is done by passing a list of column names to your DataFrame −
 tips[['total_bill', 'tip', 'smoker', 'time']].head(5)
 Let’s check the full program −
+```
+
+
+```python
 import pandas as pd
 
 url = 'https://raw.github.com/pandasdev/
@@ -41,6 +56,10 @@ Its output is as follows −
 Calling the DataFrame without the list of column names will display all columns (akin to SQL’s *).
 WHERE
 Filtering in SQL is done via a WHERE clause.
+```
+
+
+```python
   SELECT * FROM tips WHERE time = 'Dinner' LIMIT 5;
 DataFrames can be filtered in multiple ways; the most intuitive of which is using Boolean indexing.
   tips[tips['time'] == 'Dinner'].head(5)
@@ -52,6 +71,11 @@ pandas/master/pandas/tests/data/tips.csv'
 
 tips=pd.read_csv(url)
 print tips[tips['time'] == 'Dinner'].head(5)
+```
+
+
+```python
+
 Its output is as follows −
    total_bill   tip      sex  smoker  day    time  size
 0       16.99  1.01   Female     No   Sun  Dinner    2
@@ -61,6 +85,11 @@ Its output is as follows −
 4       24.59  3.61   Female     No   Sun  Dinner    4
 The above statement passes a Series of True/False objects to the DataFrame, returning all rows with True.
 GroupBy
+```
+
+
+```python
+
 This operation fetches the count of records in each group throughout a dataset. For instance, a query fetching us the number of tips left by sex −
 SELECT sex, count(*)
 FROM tips
@@ -68,6 +97,10 @@ GROUP BY sex;
 The Pandas equivalent would be −
 tips.groupby('sex').size()
 Let’s check the full program −
+```
+
+
+```python
 import pandas as pd
 
 url = 'https://raw.github.com/pandasdev/
@@ -84,6 +117,10 @@ Top N rows
 SQL returns the top n rows using LIMIT −
 SELECT * FROM tips
 LIMIT 5 ;
+```
+
+
+```python
 The Pandas equivalent would be −
 tips.head(5)
 Let’s check the full example −
@@ -93,6 +130,16 @@ url = 'https://raw.github.com/pandas-dev/pandas/master/pandas/tests/data/tips.cs
 tips=pd.read_csv(url)
 tips = tips[['smoker', 'day', 'time']].head(5)
 print tips
+```
+
+
+```python
+
+
+
+
+
+
 Its output is as follows −
    smoker   day     time
 0      No   Sun   Dinner
@@ -104,3 +151,5 @@ These are the few basic operations we compared are, which we learnt, in the prev
 
 
 
+
+```
