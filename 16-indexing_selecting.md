@@ -14,6 +14,11 @@ Indexing
 * .loc() Label based
 * .iloc() Integer based
 * .ix() Both Label and Integer based
+```
+
+
+```python
+
 
 .loc()
 Pandas provide various methods to have purely label based indexing. When slicing, the start bound is also included. Integers are valid labels, but they refer to the label and not the position.
@@ -28,7 +33,6 @@ Example 1
 
 
 ```python
-
 #import the pandas library and aliasing as pd
 import pandas as pd
 import numpy as np
@@ -38,6 +42,10 @@ index = ['a','b','c','d','e','f','g','h'], columns = ['A', 'B', 'C', 'D'])
 
 #select all rows for a specific column
 print df.loc[:,'A']
+```
+
+
+```python
 Its output is as follows −
 a   0.391548
 b  -0.070649
@@ -56,6 +64,13 @@ import numpy as np
 df = pd.DataFrame(np.random.randn(8, 4),
 index = ['a','b','c','d','e','f','g','h'], columns = ['A', 'B', 'C', 'D'])
 
+```
+
+
+```python
+
+
+
 # Select all rows for multiple columns, say list[]
 print df.loc[:,['A','C']]
 Its output is as follows −
@@ -72,9 +87,12 @@ h    1.122680   -1.621420
 
 
 ```python
+#### Example 3
+```
 
 
-Example 3
+```python
+
 # import the pandas library and aliasing as pd
 import pandas as pd
 import numpy as np
@@ -83,14 +101,21 @@ df = pd.DataFrame(np.random.randn(8, 4),
 index = ['a','b','c','d','e','f','g','h'], columns = ['A', 'B', 'C', 'D'])
 
 # Select few rows for multiple columns, say list[]
-print df.loc[['a','b','f','h'],['A','C']]
-Its output is as follows −
-           A          C
-a   0.391548   0.745623
-b  -0.070649   1.620406
-f   0.613709   0.286414
-h   1.122680  -1.621420
-Example 4
+print(df.loc[['a','b','f','h'],['A','C']])
+```
+
+              A         C
+    a  0.698224 -0.745003
+    b -0.102481 -0.428619
+    f  0.203451  1.457862
+    h  1.566531  0.527006
+
+
+#### Example 4
+
+
+
+```python
 # import the pandas library and aliasing as pd
 import pandas as pd
 import numpy as np
@@ -99,23 +124,26 @@ df = pd.DataFrame(np.random.randn(8, 4),
 index = ['a','b','c','d','e','f','g','h'], columns = ['A', 'B', 'C', 'D'])
 
 # Select range of rows for all columns
-print df.loc['a':'h']
-Its output is as follows −
-            A           B          C          D
-a    0.391548   -0.224297   0.745623   0.054301
-b   -0.070649   -0.880130   1.620406   1.419743
-c   -0.317212   -1.929698   1.448365   0.616899
-d   -2.162406    0.614256  -0.873557   1.093958
-e    2.202797   -2.315915   0.528067   0.612482
-f    0.613709   -0.157674   0.286414  -0.500517
-g    1.050559   -2.272099   0.216526   0.928449
-h    1.122680    0.324368  -1.621420  -0.741470
+print(df.loc['a':'h'])
 ```
+
+              A         B         C         D
+    a  0.039688  0.992148  0.810180  0.408712
+    b -0.733156  0.137439  0.327461  0.020296
+    c  0.301710 -0.043887  1.072658 -1.875967
+    d  0.129714  1.775020  0.635591  0.834983
+    e -0.956590 -1.923039 -0.255347 -1.868094
+    f -0.548138 -0.276310 -0.391201 -0.430545
+    g -0.841305 -1.301838  2.073024 -0.305999
+    h  0.873295  1.176141 -0.233416  1.871664
+
+
+#### Example 5
 
 
 ```python
 
-Example 5
+
 # import the pandas library and aliasing as pd
 import pandas as pd
 import numpy as np
@@ -131,13 +159,25 @@ B  True
 C  False
 D  False
 Name: a, dtype: bool
+
+
+```
+
+
+```python
 .iloc()
 Pandas provide various methods in order to get purely integer based indexing. Like python and numpy, these are 0-based indexing.
 The various access methods are as follows −
 An Integer
 A list of integers
 A range of values
-Example 1
+```
+
+#### Example 1
+
+
+```python
+
 # import the pandas library and aliasing as pd
 import pandas as pd
 import numpy as np
@@ -156,7 +196,6 @@ Its output is as follows −
 
 
 ```python
-
 Example 2
 import pandas as pd
 import numpy as np
@@ -178,57 +217,84 @@ Its output is as follows −
 2   0.025070   0.230806
 3   0.826977  -0.026251
 4   1.423332   1.130568
-Example 3
+```
+
+#### Example 3
+
+
+```python
+
+
+
 import pandas as pd
 import numpy as np
 
 df = pd.DataFrame(np.random.randn(8, 4), columns = ['A', 'B', 'C', 'D'])
 
 # Slicing through list of values
-print df.iloc[[1, 3, 5], [1, 3]]
-print df.iloc[1:3, :]
-print df.iloc[:,1:3]
-Its output is as follows −
-           B           D
-1   0.890791    0.631615
-3  -1.284314   -0.026251
-5  -0.512888   -0.518930
+print( df.iloc[[1, 3, 5], [1, 3]])
+print( df.iloc[1:3, :])
 
-           A           B           C           D
-1  -0.685354    0.890791   -0.813012    0.631615
-2  -0.783192   -0.531378    0.025070    0.230806
+```
 
-           B           C
-0   0.256239   -1.270702
-1   0.890791   -0.813012
-2  -0.531378    0.025070
-3  -1.284314    0.826977
-4  -0.460729    1.423332
-5  -0.512888    0.581409
-6  -1.204853    0.098060
-7  -0.947857    0.641358
+              B         D
+    1  0.292027 -1.508219
+    3 -0.254849 -0.904246
+    5  0.818295  2.591965
+              A         B        C         D
+    1  0.683640  0.292027  0.65577 -1.508219
+    2  0.473568  0.897978  0.39003  0.544072
+              B         C
+    0 -0.128454 -0.280424
+    1  0.292027  0.655770
+    2  0.897978  0.390030
+    3 -0.254849 -0.286877
+    4  1.053455  0.520787
+    5  0.818295  0.610940
+    6 -0.409100 -0.211414
+    7  0.296536  0.450408
+
+
+
+```python
+print( df.iloc[:,1:3])
+
+```
+
+              B         C
+    0 -0.128454 -0.280424
+    1  0.292027  0.655770
+    2  0.897978  0.390030
+    3 -0.254849 -0.286877
+    4  1.053455  0.520787
+    5  0.818295  0.610940
+    6 -0.409100 -0.211414
+    7  0.296536  0.450408
+
+
+
+```python
 .ix()
 Besides pure label based and integer based, Pandas provides a hybrid method for selections and subsetting the object using the .ix() operator.
 Example 1
+```
+
+
+```python
 import pandas as pd
 import numpy as np
 
 df = pd.DataFrame(np.random.randn(8, 4), columns = ['A', 'B', 'C', 'D'])
 
 # Integer slicing
-print df.ix[:4]
-Its output is as follows −
-           A          B           C           D
-0   0.699435   0.256239   -1.270702   -0.645195
-1  -0.685354   0.890791   -0.813012    0.631615
-2  -0.783192  -0.531378    0.025070    0.230806
-3   0.539042  -1.284314    0.826977   -0.026251
+print(df.ix[:4])
 ```
+
+#### Example 2
 
 
 ```python
 
-Example 2
 import pandas as pd
 import numpy as np
 
@@ -245,6 +311,11 @@ Its output is as follows −
 6   1.062095
 7   0.994204
 Name: A, dtype: float64
+```
+
+
+```python
+
 Use of Notations
 Getting values from the Pandas object with Multi-axes indexing uses the following notation −
 Object
@@ -261,6 +332,11 @@ p.loc[item_index,major_index, minor_index]
 p.loc[item_index,major_index, minor_index]
 Note − .iloc() & .ix() applies the same indexing options and Return value.
 Let us now see how each operation can be performed on the DataFrame object. We will use the basic indexing operator '[ ]' −
+
+```
+
+
+```python
 Example 1
 import pandas as pd
 import numpy as np
@@ -277,6 +353,10 @@ Its output is as follows −
 7  -0.759399
 Name: A, dtype: float64
 Note − We can pass a list of values to [ ] to select those columns.
+```
+
+
+```python
 Example 2
 import pandas as pd
 import numpy as np
@@ -293,6 +373,13 @@ Its output is as follows −
 5  -0.328641   -0.226363
 6   0.567721   -0.312585
 7  -0.759399   -0.372696
+```
+
+
+```python
+
+
+
 Example 3
 import pandas as pd
 import numpy as np
@@ -307,24 +394,26 @@ Columns can be selected using the attribute operator '.'.
 
 ```
 
+#### Example
+
 
 ```python
-Example
+
 import pandas as pd
 import numpy as np
 df = pd.DataFrame(np.random.randn(8, 4), columns = ['A', 'B', 'C', 'D'])
 
-print df.A
-Its output is as follows −
-0   -0.478893
-1    0.391931
-2    0.336825
-3   -1.055102
-4   -0.165218
-5   -0.328641
-6    0.567721
-7   -0.759399
-Name: A, dtype: float64
+print(df.A)
 
- Previous Page 
 ```
+
+    0    0.408685
+    1   -0.087811
+    2   -0.275869
+    3   -1.006965
+    4    0.004095
+    5   -0.487216
+    6   -0.297863
+    7    0.153044
+    Name: A, dtype: float64
+
