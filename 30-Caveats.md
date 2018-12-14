@@ -1,32 +1,37 @@
 
-
-```python
 Python Pandas - Caveats
 
 
 Caveats means warning and gotcha means an unseen problem.
-Using If/Truth Statement with Pandas
+
+### Using If/Truth Statement with Pandas
 Pandas follows the numpy convention of raising an error when you try to convert something to a bool. This happens in an if or when using the Boolean operations, and, or, or not. It is not clear what the result should be. Should it be True because it is not zerolength? False because there are False values? It is unclear, so instead, Pandas raises a ValueError −
 
-```
 
-
-```python
+<pre><code>
 import pandas as pd
 
 if pd.Series([False, True, False]):
-   print 'I am True'
+   print('I am True')
+</code></pre>
+
 Its output is as follows −
+<pre><code>
 ValueError: The truth value of a Series is ambiguous. Use a.empty, a.bool() a.item(), a.any() or a.all().
+</code></pre>    
 In if condition, it is unclear what to do with it. The error is suggestive of whether to use a None or any of those.
+
+
+```python
+import pandas as pd
+if pd.Series([False, True, False]).any():
+   print("I am any")
 ```
 
 
 ```python
 
-import pandas as pd
-if pd.Series([False, True, False]).any():
-   print("I am any")
+
 Its output is as follows −
 I am any
 To evaluate single-element pandas objects in a Boolean context, use the method .bool() −
@@ -55,60 +60,76 @@ dtype: bool
 
 
 ```python
-
 isin Operation
 This returns a Boolean series showing whether each element in the Series is exactly contained in the passed sequence of values.
+
+```
+
+
+```python
 import pandas as pd
 
 s = pd.Series(list('abc'))
 s = s.isin(['a', 'c', 'e'])
-print s
-Its output is as follows −
-0 True
-1 False
-2 True
-dtype: bool
+print(s)
 ```
+
+    0     True
+    1    False
+    2     True
+    dtype: bool
+
 
 
 ```python
-
-
 Reindexing vs ix Gotcha
 Many users will find themselves using the ix indexing capabilities as a concise means of selecting data from a Pandas object −
-import pandas as pd
-import numpy as np
 
-df = pd.DataFrame(np.random.randn(6, 4), columns=['one', 'two', 'three',
-'four'],index=list('abcdef'))
-
-print df
-print df.ix[['b', 'c', 'e']]
-Its output is as follows −
-          one        two      three       four
-a   -1.582025   1.335773   0.961417  -1.272084
-b    1.461512   0.111372  -0.072225   0.553058
-c   -1.240671   0.762185   1.511936  -0.630920
-d   -2.380648  -0.029981   0.196489   0.531714
-e    1.846746   0.148149   0.275398  -0.244559
-f   -1.842662  -0.933195   2.303949   0.677641
-
-          one        two      three       four
-b    1.461512   0.111372  -0.072225   0.553058
-c   -1.240671   0.762185   1.511936  -0.630920
-e    1.846746   0.148149   0.275398  -0.244559
 ```
 
 
 ```python
 
+
+import pandas as pd
+import numpy as np
+
+df = pd.DataFrame(np.random.randn(6, 4), columns=['one', 'two', 'three',
+'four'],index=list('abcdef'))
+
+print (df)
+print (df.loc[['b', 'c', 'e']])
+
+```
+
+            one       two     three      four
+    a -1.345411  0.970597  0.930269  0.388520
+    b -1.387839 -0.487871 -1.102046  0.908156
+    c -1.015735  0.316692 -0.751919  0.572387
+    d  2.496765  0.400015 -1.630830  1.385007
+    e -2.150634  0.648656  0.328425  0.447221
+    f -0.595839 -1.675665  0.200536  0.256498
+            one       two     three      four
+    b -1.387839 -0.487871 -1.102046  0.908156
+    c -1.015735  0.316692 -0.751919  0.572387
+    e -2.150634  0.648656  0.328425  0.447221
+
+
+
+```python
 This is, of course, completely equivalent in this case to using the reindex method −
+```
+
+
+```python
+
+
 import pandas as pd
 import numpy as np
 df = pd.DataFrame(np.random.randn(6, 4), columns=['one', 'two', 'three',
 'four'],index=list('abcdef'))
-print df
-print df.reindex(['b', 'c', 'e'])
+print(df
+print(df.reindex(['b', 'c', 'e'])
 Its output is as follows −
           one        two      three       four
 a    1.639081   1.369838   0.261287  -1.662003
@@ -134,35 +155,14 @@ import numpy as np
 df = pd.DataFrame(np.random.randn(6, 4), columns=['one', 'two', 'three',
 'four'],index=list('abcdef'))
 
-print df
-print df.ix[[1, 2, 4]]
-print df.reindex([1, 2, 4])
+print(df)
+print(df.ix[[1, 2, 4]])
+print(df.reindex([1, 2, 4]))
 ```
 
 
-```python
 
-
-Its output is as follows −
-          one        two      three       four
-a   -1.015695  -0.553847   1.106235  -0.784460
-b   -0.527398  -0.518198  -0.710546  -0.512036
-c   -0.842803  -1.050374   0.787146   0.205147
-d   -1.238016  -0.749554  -0.547470  -0.029045
-e   -0.056788   1.063999  -0.767220   0.212476
-f    1.139714   0.036159   0.201912   0.710119
-
-          one        two      three       four
-b   -0.527398  -0.518198  -0.710546  -0.512036
-c   -0.842803  -1.050374   0.787146   0.205147
-e   -0.056788   1.063999  -0.767220   0.212476
-
-    one  two  three  four
-1   NaN  NaN    NaN   NaN
-2   NaN  NaN    NaN   NaN
-4   NaN  NaN    NaN   NaN
 It is important to remember that reindex is strict label indexing only. This can lead to some potentially surprising results in pathological cases where an index contains, say, both integers and strings.
 
 =
 
-```

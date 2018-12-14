@@ -1,7 +1,6 @@
 
 
 ```python
-
 Python Pandas - Statistical Functions
 
 
@@ -9,52 +8,64 @@ Python Pandas - Statistical Functions
 Statistical methods help in the understanding and analyzing the behavior of data. We will now learn a few statistical functions, which we can apply on Pandas objects.
 
 #### Percent_change
-Series, DatFrames and Panel, all have the function pct_change(). This function compares every element with its prior element and computes the change percentage.
+Series, DatFrames and Panel, all have the function ``pct_change()``. This function compares every element with 
+its prior element and computes the change percentage.
 
-<pre><code>
-import pandas as pd
-import numpy as np
-s = pd.Series([1,2,3,4,5,4])
-print s.pct_change()
-
-df = pd.DataFrame(np.random.randn(5, 2))
-print df.pct_change()
-</code></pre>
-Its output is as follows −
-0        NaN
-1   1.000000
-2   0.500000
-3   0.333333
-4   0.250000
-5  -0.200000
-dtype: float64
-
-            0          1
-0         NaN        NaN
-1  -15.151902   0.174730
-2  -0.746374   -1.449088
-3  -3.582229   -3.165836
-4   15.601150  -1.860434
-By default, the pct_change() operates on columns; if you want to apply the same row wise, then use axis=1() argument.
-
-#### Covariance
-Covariance is applied on series data. The Series object has a method cov to compute covariance between series objects. NA will be excluded automatically.
-Cov Series
-<pre><code>
-import pandas as pd
-import numpy as np
-s1 = pd.Series(np.random.randn(10))
-s2 = pd.Series(np.random.randn(10))
-print s1.cov(s2)
-</code></pre>
-Its output is as follows −
--0.12978405324
 
 ```
 
 
 ```python
+
+
+
+
+import pandas as pd
+import numpy as np
+s = pd.Series([1,2,3,4,5,4])
+print s.pct_change()
+
+
+```
+
+
+```python
+df = pd.DataFrame(np.random.randn(5, 2))
+print df.pct_change()
+```
+
+
+```python
+
+By default, the pct_change() operates on columns; if you want to apply the same row wise, then use axis=1() argument.
+
+#### Covariance
+Covariance is applied on series data. The Series object has a method cov to compute covariance between series objects. NA will be excluded automatically.
+Cov Series
+```
+
+
+```python
+
+import pandas as pd
+import numpy as np
+s1 = pd.Series(np.random.randn(10))
+s2 = pd.Series(np.random.randn(10))
+print(s1.cov(s2))
+
+```
+
+    0.5236622813657625
+
+
+
+```python
 Covariance method when applied on a DataFrame, computes cov between all the columns.
+
+```
+
+
+```python
 <pre><code>
 import pandas as pd
 import numpy as np
@@ -77,7 +88,6 @@ Note − Observe the cov between a and b column in the first statement and the s
 
 
 ```python
-
 #### Correlation
 Correlation shows the linear relationship between any two array of values (series). There are multiple methods to compute the correlation like pearson(default), spearman and kendall.
 <pre><code>
@@ -89,15 +99,11 @@ print frame['a'].corr(frame['b'])
 
 print frame.corr()
 </code></pre>
-Its output is as follows −
--0.383712785514
+```
 
-           a          b          c          d           e
-a   1.000000  -0.383713  -0.145368   0.002235   -0.104405
-b  -0.383713   1.000000   0.125311  -0.372821    0.224908
-c  -0.145368   0.125311   1.000000  -0.045661   -0.062840
-d   0.002235  -0.372821  -0.045661   1.000000   -0.403380
-e  -0.104405   0.224908  -0.062840  -0.403380    1.000000
+
+```python
+
 If any non-numeric column is present in the DataFrame, it is excluded automatically.
 Data Ranking
 Data Ranking produces ranking for each element in the array of elements. In case of ties, assigns the mean rank.
@@ -124,8 +130,6 @@ dtype: float64
 
 ```
 
-
-```python
 Rank optionally takes a parameter ascending which by default is true; when false, data is reverse-ranked, with larger values assigned a smaller rank.
 Rank supports different tie-breaking methods, specified with the method parameter −
 average − average rank of tied group
@@ -134,4 +138,3 @@ max − highest rank in the group
 first − ranks assigned in the order they appear in the array
 
 
-```
