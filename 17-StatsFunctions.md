@@ -23,26 +23,40 @@ its prior element and computes the change percentage.
 import pandas as pd
 import numpy as np
 s = pd.Series([1,2,3,4,5,4])
-print s.pct_change()
+print(s.pct_change())
 
 
 ```
+
+    0         NaN
+    1    1.000000
+    2    0.500000
+    3    0.333333
+    4    0.250000
+    5   -0.200000
+    dtype: float64
+
 
 
 ```python
 df = pd.DataFrame(np.random.randn(5, 2))
-print df.pct_change()
+print(df.pct_change())
 ```
 
+               0          1
+    0        NaN        NaN
+    1  -0.983019  -1.415582
+    2 -67.747426  -1.009710
+    3  -1.678494 -99.139727
+    4   0.204784  -1.350842
 
-```python
+
 
 By default, the pct_change() operates on columns; if you want to apply the same row wise, then use axis=1() argument.
 
 #### Covariance
 Covariance is applied on series data. The Series object has a method cov to compute covariance between series objects. NA will be excluded automatically.
 Cov Series
-```
 
 
 ```python
@@ -55,24 +69,30 @@ print(s1.cov(s2))
 
 ```
 
-    0.5236622813657625
+    -0.28324403932323955
+
+
+Covariance method when applied on a DataFrame, computes cov between all the columns.
 
 
 
 ```python
-Covariance method when applied on a DataFrame, computes cov between all the columns.
+import pandas as pd
+import numpy as np
+frame = pd.DataFrame(np.random.randn(10, 5), columns=['a', 'b', 'c', 'd', 'e'])
+print frame['a'].cov(frame['b'])
+
 
 ```
 
 
 ```python
-<pre><code>
-import pandas as pd
-import numpy as np
-frame = pd.DataFrame(np.random.randn(10, 5), columns=['a', 'b', 'c', 'd', 'e'])
-print frame['a'].cov(frame['b'])
 print frame.cov()
-</code></pre>
+```
+
+
+```python
+
 Its output is as follows −
 -0.58312921152741437
 
@@ -86,11 +106,13 @@ Note − Observe the cov between a and b column in the first statement and the s
 
 ```
 
-
-```python
 #### Correlation
 Correlation shows the linear relationship between any two array of values (series). There are multiple methods to compute the correlation like pearson(default), spearman and kendall.
-<pre><code>
+
+
+
+```python
+
 import pandas as pd
 import numpy as np
 frame = pd.DataFrame(np.random.randn(10, 5), columns=['a', 'b', 'c', 'd', 'e'])
@@ -102,12 +124,9 @@ print frame.corr()
 ```
 
 
-```python
-
 If any non-numeric column is present in the DataFrame, it is excluded automatically.
 Data Ranking
 Data Ranking produces ranking for each element in the array of elements. In case of ties, assigns the mean rank.
-```
 
 
 ```python
@@ -119,6 +138,11 @@ s = pd.Series(np.random.np.random.randn(5), index=list('abcde'))
 s['d'] = s['b'] # so there's a tie
 
 print s.rank()
+```
+
+
+```python
+
 Its output is as follows −
 a  1.0
 b  3.5

@@ -1,39 +1,36 @@
 
-
-```python
 Python Pandas - Indexing and Selecting Data
-
+==================================================
 
 
 In this chapter, we will discuss how to slice and dice the date and generally get the subset of pandas object.
 The Python and NumPy indexing operators "[ ]" and attribute operator "." provide quick and easy access to Pandas data structures across a wide range of use cases. However, since the type of the data to be accessed isn’t known in advance, directly using standard operators has some optimization limits. For production code, we recommend that you take advantage of the optimized pandas data access methods explained in this chapter.
 Pandas now supports three types of Multi-axes indexing; the three types are mentioned in the following table −
-Indexing
-
-#### Description
-* .loc() Label based
-* .iloc() Integer based
-* .ix() Both Label and Integer based
-```
 
 
-```python
 
+#### Indexing
+* ``.loc()``: Label based
+* ``.iloc()``: Integer based
+* ``.ix()``: Both Label and Integer based
 
-.loc()
+### ``.loc()``
+
 Pandas provide various methods to have purely label based indexing. When slicing, the start bound is also included. Integers are valid labels, but they refer to the label and not the position.
-.loc() has multiple access methods like −
-A single scalar label
-A list of labels
-A slice object
-A Boolean array
-loc takes two single/list/range operator separated by ','. The first one indicates the row and the second one indicates columns.
-Example 1
-```
+``.loc()`` has multiple access methods like −
+* A single scalar label
+* A list of labels
+*  A slice object
+* A Boolean array
+l
+oc takes two single/list/range operator separated by ','. The first one indicates the row and the second one indicates columns.
+
+#### Example 1
 
 
 ```python
 #import the pandas library and aliasing as pd
+
 import pandas as pd
 import numpy as np
 
@@ -41,22 +38,24 @@ df = pd.DataFrame(np.random.randn(8, 4),
 index = ['a','b','c','d','e','f','g','h'], columns = ['A', 'B', 'C', 'D'])
 
 #select all rows for a specific column
-print df.loc[:,'A']
+print(df.loc[:,'A'])
 ```
+
+    a    1.551026
+    b    0.281038
+    c    0.116974
+    d    0.109972
+    e    0.502636
+    f   -0.894577
+    g   -1.841751
+    h   -1.166839
+    Name: A, dtype: float64
+
+
+#### Example 2
 
 
 ```python
-Its output is as follows −
-a   0.391548
-b  -0.070649
-c  -0.317212
-d  -2.162406
-e   2.202797
-f   0.613709
-g   1.050559
-h   1.122680
-Name: A, dtype: float64
-Example 2
 # import the pandas library and aliasing as pd
 import pandas as pd
 import numpy as np
@@ -72,23 +71,22 @@ index = ['a','b','c','d','e','f','g','h'], columns = ['A', 'B', 'C', 'D'])
 
 
 # Select all rows for multiple columns, say list[]
-print df.loc[:,['A','C']]
-Its output is as follows −
-            A           C
-a    0.391548    0.745623
-b   -0.070649    1.620406
-c   -0.317212    1.448365
-d   -2.162406   -0.873557
-e    2.202797    0.528067
-f    0.613709    0.286414
-g    1.050559    0.216526
-h    1.122680   -1.621420
+print(df.loc[:,['A','C']])
+
 ```
 
+              A         C
+    a  0.924991 -1.687593
+    b  0.716964  1.403685
+    c -0.258965  0.683530
+    d -0.537149  0.513119
+    e  1.051740 -1.936683
+    f  0.251938  1.820420
+    g -0.000178 -0.588688
+    h  0.387250 -0.699250
 
-```python
+
 #### Example 3
-```
 
 
 ```python
@@ -105,10 +103,10 @@ print(df.loc[['a','b','f','h'],['A','C']])
 ```
 
               A         C
-    a  0.698224 -0.745003
-    b -0.102481 -0.428619
-    f  0.203451  1.457862
-    h  1.566531  0.527006
+    a  0.263231  1.577000
+    b  1.307732  1.490180
+    f  0.040466 -1.096467
+    h  1.843551 -0.937235
 
 
 #### Example 4
