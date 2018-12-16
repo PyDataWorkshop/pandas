@@ -114,30 +114,22 @@ print(pd.merge(left,right,on=['id','subject_id']))
     1  Ayoung   5       sub5  Betty
 
 
-Merge Using 'how' Argument
-The how argument to merge specifies how to determine which keys are to be included in the resulting table. If a key combination does not appear in either the left or the right tables, the values in the joined table will be NA.
+### Merge Using 'how' Argument
+
+The how argument to merge specifies how to determine which keys are to be included in the resulting table. 
+
+If a key combination does not appear in either the left or the right tables, the values in the joined table will be NA.
 Here is a summary of the how options and their SQL equivalent names −
 
 
-```python
+|Merge Method | SQL Equivalent | Description |
+|----|----|:----|
+|left |  LEFT OUTER JOIN |  Use keys from left object |
+|right|  RIGHT OUTER JOIN | Use keys from right object|
+|outer|  FULL OUTER JOIN |  Use union of keys|
+|inner| INNER JOIN | Use intersection of keys|
 
-Merge Method
-SQL Equivalent
-Description
-left
-LEFT OUTER JOIN
-Use keys from left object
-right
-RIGHT OUTER JOIN
-Use keys from right object
-outer
-FULL OUTER JOIN
-Use union of keys
-inner
-INNER JOIN
-Use intersection of keys
-Left Join
-```
+### Left Join
 
 
 ```python

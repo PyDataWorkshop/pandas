@@ -15,11 +15,11 @@ we can create the date series. By default, the frequency of range is ``Days``.
 
 ```python
 import pandas as pd 
-print(pd.date_range('1/1/2011', periods=5) )
+print(pd.date_range('1/1/2018', periods=5) )
 ```
 
-    DatetimeIndex(['2011-01-01', '2011-01-02', '2011-01-03', '2011-01-04',
-                   '2011-01-05'],
+    DatetimeIndex(['2018-01-01', '2018-01-02', '2018-01-03', '2018-01-04',
+                   '2018-01-05'],
                   dtype='datetime64[ns]', freq='D')
 
 
@@ -27,14 +27,14 @@ print(pd.date_range('1/1/2011', periods=5) )
 ```python
 ### Change the Date Frequency
 import pandas as pd 
-print(pd.date_range('1/1/2011', periods=5,freq='M') )
+print(pd.date_range('1/1/2018', periods=5,freq='M') )
 
 
    
 ```
 
-    DatetimeIndex(['2011-01-31', '2011-02-28', '2011-03-31', '2011-04-30',
-                   '2011-05-31'],
+    DatetimeIndex(['2018-01-31', '2018-02-28', '2018-03-31', '2018-04-30',
+                   '2018-05-31'],
                   dtype='datetime64[ns]', freq='M')
 
 
@@ -47,7 +47,7 @@ Unlike ``date_range()``, it excludes Saturday and Sunday.
 
 ```python
 import pandas as pd 
-print(pd.date_range('1/1/2011', periods=5))
+print(pd.date_range('1/1/2018', periods=5))
     
 ```
 
@@ -57,6 +57,7 @@ print(pd.date_range('1/1/2011', periods=5))
 
 
 Observe, after 3rd March, the date jumps to 6th march excluding 4th and 5th. Just check your calendar for the days. 
+
 Convenience functions like ``date_range`` and ``bdate_range`` utilize a variety of frequency aliases.
     
 
@@ -66,14 +67,14 @@ The default frequency for ``date_range`` is a calendar day while the default for
 
 ```python
 import pandas as pd 
-start = pd.datetime(2011, 1, 1) 
-end = pd.datetime(2011, 1, 5) 
+start = pd.datetime(2018, 1, 1) 
+end = pd.datetime(2018, 1, 8) 
 print(pd.date_range(start, end))
 
 
 ```
 
-    DatetimeIndex(['2011-01-01', '2011-01-02', '2011-01-03', '2011-01-04',
-                   '2011-01-05'],
+    DatetimeIndex(['2018-01-01', '2018-01-02', '2018-01-03', '2018-01-04',
+                   '2018-01-05', '2018-01-06', '2018-01-07', '2018-01-08'],
                   dtype='datetime64[ns]', freq='D')
 

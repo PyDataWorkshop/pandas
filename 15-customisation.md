@@ -1,13 +1,6 @@
 
 
 ```python
-Jobs
-  Examples
-  Whiteboard
-  Net Meeting
-Tools 
-  Articles
-
 Python Pandas - Options and Customization
 
 
@@ -42,6 +35,11 @@ Displays the default number of value. Interpreter reads this value and displays 
 ```python
 import pandas as pd
 print pd.get_option("display.max_columns")
+
+```
+
+
+```python
 Its output is as follows −
 20
 Here, 60 and 20 are the default configuration parameter values.
@@ -88,49 +86,67 @@ Using reset_option(), we can change the value back to the default number of rows
 import pandas as pd
 
 pd.reset_option("display.max_rows")
-print pd.get_option("display.max_rows")
-Its output is as follows −
-60
-describe_option(param)
-describe_option prints the description of the argument.
+print(pd.get_option("display.max_rows"))
+
 ```
+
+    60
+
+
+### ``describe_option(param)``
+describe_option prints the description of the argument.
+
+### ``display.max_rows``
+
+Using ``reset_option()``, we can change the value back to the default number of rows to be displayed.
+
 
 
 ```python
-display.max_rows
-Using reset_option(), we can change the value back to the default number of rows to be displayed.
 import pandas as pd
 pd.describe_option("display.max_rows")
 ```
 
+    display.max_rows : int
+        If max_rows is exceeded, switch to truncate view. Depending on
+        `large_repr`, objects are either centrally truncated or printed as
+        a summary view. 'None' value means unlimited.
+    
+        In case python/IPython is running in a terminal and `large_repr`
+        equals 'truncate' this can be set to 0 and pandas will auto-detect
+        the height of the terminal and print a truncated object which fits
+        the screen height. The IPython notebook, IPython qtconsole, or
+        IDLE do not run in a terminal and hence it is not possible to do
+        correct auto-detection.
+        [default: 60] [currently: 60]
+    
+    
+
+
 
 ```python
-
-Its output is as follows −
-display.max_rows : int
-   If max_rows is exceeded, switch to truncate view. Depending on
-   'large_repr', objects are either centrally truncated or printed as
-   a summary view. 'None' value means unlimited.
-
-   In case python/IPython is running in a terminal and `large_repr`
-   equals 'truncate' this can be set to 0 and pandas will auto-detect
-   the height of the terminal and print a truncated object which fits
-   the screen height. The IPython notebook, IPython qtconsole, or
-   IDLE do not run in a terminal and hence it is not possible to do
-   correct auto-detection.
-   [default: 60] [currently: 60]
+#### ``option_context()``
+option_context context manager is used to set the option in with statement temporarily. Option values are restored automatically when you exit the with block −
+display.max_rows
+Using option_context(), we can set the value temporarily.
 ```
 
 
 ```python
-option_context()
-option_context context manager is used to set the option in with statement temporarily. Option values are restored automatically when you exit the with block −
-display.max_rows
-Using option_context(), we can set the value temporarily.
 import pandas as pd
 with pd.option_context("display.max_rows",10):
-   print(pd.get_option("display.max_rows"))
-   print(pd.get_option("display.max_rows"))
+    print(pd.get_option("display.max_rows"))
+    print(pd.get_option("display.max_rows"))
+```
+
+    10
+    10
+
+
+
+```python
+
+
 Its output is as follows −
 10
 10
@@ -146,24 +162,13 @@ See, the difference between the first and the second print statements. The first
 
 
 Frequently used Parameters
-S.No
-Parameter
-Description
-1
-display.max_rows
-Displays maximum number of rows to display
-2
-2 display.max_columns
-Displays maximum number of columns to display
-3
-display.expand_frame_repr
-Displays DataFrames to Stretch Pages
-4
-display.max_colwidth
-Displays maximum column width
-5
-display.precision
-Displays precision for decimal numbers
+
+Parameter Description
+1. display.max_rows   Displays maximum number of rows to display
+2. display.max_columns   Displays maximum number of columns to display
+3. display.expand_frame_repr   Displays DataFrames to Stretch Pages
+4. display.max_colwidth   Displays maximum column width
+5. display.precision   Displays precision for decimal numbers
 
 
 

@@ -1,7 +1,6 @@
 
-
-```python
 Python Pandas - Descriptive Statistics
+=======================================
 
 A large number of methods collectively compute descriptive statistics and other related operations on DataFrame. 
 Most of these are aggregations like sum(), mean(), but some of them, like sumsum(), produce an object of the 
@@ -9,19 +8,17 @@ same size. Generally speaking, these methods take an axis argument, just like nd
 specified by name or integer DataFrame − “index” (axis=0, default), “columns” (axis=1) 
 
 Let us create a DataFrame and use this object throughout this chapter for all the operations. 
-```
 
-
-```python
-Example 
-```
+### Example 
 
 
 ```python
 import pandas as pd 
 import numpy as np
 #Create a Dictionary of series 
-d = {'Name':pd.Series(['Tom','James','Ricky','Vin','Steve','Smith','Jack', 'Lee','David','Gasper','Betina','Andres']), 'Age':pd.Series([25,26,25,23,30,29,23,34,40,30,51,46]), 'Rating':pd.Series([4.23,3.24,3.98,2.56,3.20,4.6,3.8,3.78,2.98,4.80,4.10,3.65])}
+d = {'Name':pd.Series(['Tom','James','Ricky','Vin','Steve','Smith','Jack', 'Lee','David','Gasper','Betina','Andres']), 
+     'Age':pd.Series([25,26,25,23,30,29,23,34,40,30,51,46]), 
+     'Rating':pd.Series([4.23,3.24,3.98,2.56,3.20,4.6,3.8,3.78,2.98,4.80,4.10,3.65])}
 #Create a DataFrame 
 df = pd.DataFrame(d) 
 print( df )
@@ -53,7 +50,9 @@ Returns the sum of the values for the requested axis. By default, axis is index 
 import pandas as pd 
 import numpy as np
 #Create a Dictionary of series 
-d = {'Name':pd.Series(['Tom','James','Ricky','Vin','Steve','Smith','Jack', 'Lee','David','Gasper','Betina','Andres']), 'Age':pd.Series([25,26,25,23,30,29,23,34,40,30,51,46]), 'Rating':pd.Series([4.23,3.24,3.98,2.56,3.20,4.6,3.8,3.78,2.98,4.80,4.10,3.65])}
+d = {'Name':pd.Series(['Tom','James','Ricky','Vin','Steve','Smith','Jack', 'Lee','David','Gasper','Betina','Andres']), 
+     'Age':pd.Series([25,26,25,23,30,29,23,34,40,30,51,46]), 
+     'Rating':pd.Series([4.23,3.24,3.98,2.56,3.20,4.6,3.8,3.78,2.98,4.80,4.10,3.65])}
 #Create a DataFrame 
 df = pd.DataFrame(d) 
 print( df.sum() ) 
@@ -98,18 +97,17 @@ print(df.sum(1))
     dtype: float64
 
 
-
-```python
-mean() 
+### ``mean()``
 Returns the average value
-```
 
 
 ```python
 import pandas as pd
 import numpy as np
 #Create a Dictionary of series 
-d = {'Name':pd.Series(['Tom','James','Ricky','Vin','Steve','Smith','Jack', 'Lee','David','Gasper','Betina','Andres']), 'Age':pd.Series([25,26,25,23,30,29,23,34,40,30,51,46]), 'Rating':pd.Series([4.23,3.24,3.98,2.56,3.20,4.6,3.8,3.78,2.98,4.80,4.10,3.65])}
+d = {'Name':pd.Series(['Tom','James','Ricky','Vin','Steve','Smith','Jack', 'Lee','David','Gasper','Betina','Andres']), 
+     'Age':pd.Series([25,26,25,23,30,29,23,34,40,30,51,46]), 
+     'Rating':pd.Series([4.23,3.24,3.98,2.56,3.20,4.6,3.8,3.78,2.98,4.80,4.10,3.65])}
 #Create a DataFrame 
 df = pd.DataFrame(d) 
 print(df.mean()) 
@@ -129,7 +127,9 @@ Returns the Bressel standard deviation of the numerical columns.
 import pandas as pd 
 import numpy as np
 #Create a Dictionary of series 
-d = {'Name':pd.Series(['Tom','James','Ricky','Vin','Steve','Smith','Jack', 'Lee','David','Gasper','Betina','Andres']), 'Age':pd.Series([25,26,25,23,30,29,23,34,40,30,51,46]), 'Rating':pd.Series([4.23,3.24,3.98,2.56,3.20,4.6,3.8,3.78,2.98,4.80,4.10,3.65])}
+d = {'Name':pd.Series(['Tom','James','Ricky','Vin','Steve','Smith','Jack', 'Lee','David','Gasper','Betina','Andres']), 
+     'Age':pd.Series([25,26,25,23,30,29,23,34,40,30,51,46]), 
+     'Rating':pd.Series([4.23,3.24,3.98,2.56,3.20,4.6,3.8,3.78,2.98,4.80,4.10,3.65])}
 #Create a DataFrame 
 df = pd.DataFrame(d) 
 print(df.std() )
@@ -152,15 +152,16 @@ Let us now understand the functions under Descriptive Statistics in Python Panda
 ```python
 
 
-The following table list down the important functions − S.No. Function Description 
+The following table list down the important functions 
+
 1. count() Number of non-null observations 
 2. sum() Sum of values 
 3. mean() Mean of Values 
 4. median() Median of Values 
 5. mode() Mode of values 
 6. std() Standard Deviation of the Values 
-7.min() Minimum Value 
-8. max() Maximum Value 
+7. min() Minimum Value 
+8.  max() Maximum Value 
 9. abs() Absolute Value 
 10. prod() Product of Values 
 11. cumsum() Cumulative Sum 
@@ -180,10 +181,16 @@ The ``describe()`` function computes a summary of statistics pertaining to the D
 
 
 ```python
-import pandas as pd import numpy as np
-#Create a Dictionary of series d = {'Name':pd.Series(['Tom','James','Ricky','Vin','Steve','Smith','Jack', 'Lee','David','Gasper','Betina','Andres']), 'Age':pd.Series([25,26,25,23,30,29,23,34,40,30,51,46]), 'Rating':pd.Series([4.23,3.24,3.98,2.56,3.20,4.6,3.8,3.78,2.98,4.80,4.10,3.65])}
-#Create a DataFrame df = pd.DataFrame(d) 
-print df.describe() 
+import pandas as pd 
+import numpy as np
+#Create a Dictionary of series 
+d = {'Name':pd.Series(['Tom','James','Ricky','Vin','Steve','Smith','Jack', 'Lee','David','Gasper','Betina','Andres']), 
+     'Age':pd.Series([25,26,25,23,30,29,23,34,40,30,51,46]), 
+     'Rating':pd.Series([4.23,3.24,3.98,2.56,3.20,4.6,3.8,3.78,2.98,4.80,4.10,3.65])}
+
+#Create a DataFrame 
+df = pd.DataFrame(d) 
+print(df.describe()) 
 ```
 
 
@@ -200,6 +207,11 @@ Takes the list of values; by default, 'number'. object − Summarizes String col
 
  Now, use the following statement in the program and check the output − import pandas as pd import numpy as np
 #Create a Dictionary of series 
+```
+
+
+```python
+
 d = {'Name':pd.Series(['Tom','James','Ricky','Vin','Steve','Smith','Jack', 'Lee','David','Gasper','Betina','Andres']), 'Age':pd.Series([25,26,25,23,30,29,23,34,40,30,51,46]), 'Rating':pd.Series([4.23,3.24,3.98,2.56,3.20,4.6,3.8,3.78,2.98,4.80,4.10,3.65])}
 #Create a DataFrame df = pd.DataFrame(d) print df.describe(include=['object']) Its output is as follows − Name count 12 unique 12 top Ricky freq 1 
 
@@ -217,10 +229,27 @@ Now, use the following statement and check the output −
 
 import pandas as pd 
 import numpy as np
-#Create a Dictionary of series d = {'Name':pd.Series(['Tom','James','Ricky','Vin','Steve','Smith','Jack', 'Lee','David','Gasper','Betina','Andres']), 'Age':pd.Series([25,26,25,23,30,29,23,34,40,30,51,46]), 'Rating':pd.Series([4.23,3.24,3.98,2.56,3.20,4.6,3.8,3.78,2.98,4.80,4.10,3.65])}
-#Create a DataFrame df = pd.DataFrame(d) 
-print df. describe(include='all') 
+#Create a Dictionary of series 
+d = {'Name':pd.Series(['Tom','James','Ricky','Vin','Steve','Smith','Jack', 'Lee','David','Gasper','Betina','Andres']), 
+     'Age':pd.Series([25,26,25,23,30,29,23,34,40,30,51,46]), 
+     'Rating':pd.Series([4.23,3.24,3.98,2.56,3.20,4.6,3.8,3.78,2.98,4.80,4.10,3.65])}
+#Create a DataFrame 
+df = pd.DataFrame(d) 
+print(df. describe(include='all') )
 
-Its output is as follows − Age Name Rating count 12.000000 12 12.000000 unique NaN 12 NaN top NaN Ricky NaN freq NaN 1 NaN mean 31.833333 NaN 3.743333 std 9.232682 NaN 0.661628 min 23.000000 NaN 2.560000 25% 25.000000 NaN 3.230000 50% 29.500000 NaN 3.790000 75% 35.500000 NaN 4.132500 max 51.000000 NaN 4.800000
 
 ```
+
+                  Age   Name     Rating
+    count   12.000000     12  12.000000
+    unique        NaN     12        NaN
+    top           NaN  Ricky        NaN
+    freq          NaN      1        NaN
+    mean    31.833333    NaN   3.743333
+    std      9.232682    NaN   0.661628
+    min     23.000000    NaN   2.560000
+    25%     25.000000    NaN   3.230000
+    50%     29.500000    NaN   3.790000
+    75%     35.500000    NaN   4.132500
+    max     51.000000    NaN   4.800000
+
