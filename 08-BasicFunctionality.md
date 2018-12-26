@@ -1,6 +1,4 @@
 
-
-```python
 Python Pandas - Basic Functionality
 
 
@@ -9,33 +7,19 @@ Python Pandas - Basic Functionality
 By now, we learnt about the three Pandas DataStructures and how to create them. We will majorly focus on the DataFrame objects because of its importance in the real time data processing and also discuss a few other DataStructures.
 Series Basic Functionality
 S.No.
-Attribute or Method
-Description
-1
-axes
-Returns a list of the row axis labels.
-2
-dtype
-Returns the dtype of the object.
-3
-empty
-Returns True if series is empty.
-4
-ndim
-Returns the number of dimensions of the underlying data, by definition 1.
-5
-size
-Returns the number of elements in the underlying data.
-6
-values
-Returns the Series as ndarray.
-7
-head()
-Returns the first n rows.
-8
-tail()
-Returns the last n rows.
-```
+
+
+|		|Attribute or Method|Description|
+|----|-----|:--------|
+|	1	|``	axes	``|	Returns a list of the row axis labels.	|
+|	2	|``	dtype	``|	Returns the dtype of the object.	|
+|	3	|``	empty	``|	Returns True if series is empty.	|
+|	4	|``	ndim	``|	Returns the number of dimensions of the underlying data, by definition 1.	|
+|	5	|``	size	``|	Returns the number of elements in the underlying data.	|
+|	6	|``	values	``|	Returns the Series as ndarray.	|
+|	7	|``	head()	``|	Returns the first n rows.	|
+|	8	|``	tail()	``|	Returns the last n rows.	|
+
 
 
 ```python
@@ -46,19 +30,12 @@ import numpy as np
 
 #Create a series with 100 random numbers
 s = pd.Series(np.random.randn(4))
-print s
+print(s)
 ```
 
 
 ```python
 
-
-Its output is as follows −
-0   0.967853
-1  -0.148368
-2  -1.395906
-3  -1.758394
-dtype: float64
 axes
 Returns the list of the labels of the series.
 import pandas as pd
@@ -71,7 +48,7 @@ import numpy as np
 #Create a series with 100 random numbers
 s = pd.Series(np.random.randn(4))
 print ("The axes are:")
-print s.axes
+print(s).axes
 Its output is as follows −
 The axes are:
 [RangeIndex(start=0, stop=4, step=1)]
@@ -87,10 +64,10 @@ import numpy as np
 
 #Create a series with 4 random numbers
 s = pd.Series(np.random.randn(4))
-print s
+print(s)
 
 print ("The dimensions of the object:")
-print s.ndim
+print(s.ndim)
 Its output is as follows −
 0   0.175898
 1   0.166197
@@ -110,7 +87,7 @@ import numpy as np
 #Create a series with 100 random numbers
 s = pd.Series(np.random.randn(4))
 print ("Is the Object empty?")
-print s.empty
+print(s.empty)
 Its output is as follows −
 Is the Object empty?
 False
@@ -131,9 +108,9 @@ import numpy as np
 
 #Create a series with 4 random numbers
 s = pd.Series(np.random.randn(2))
-print s
+print(s)
 print ("The size of the object:")
-print s.size
+print(s).size
 Its output is as follows −
 0   3.078058
 1  -1.207803
@@ -154,10 +131,10 @@ import numpy as np
 
 #Create a series with 4 random numbers
 s = pd.Series(np.random.randn(4))
-print s
+print(s)
 
 print ("The actual data series is:")
-print s.values
+print(s).values
 Its output is as follows −
 0   1.787373
 1  -0.605159
@@ -181,26 +158,17 @@ import numpy as np
 #Create a series with 4 random numbers
 s = pd.Series(np.random.randn(4))
 print ("The original series is:")
-print s
+print(s)
 
 print ("The first two rows of the data series:")
-print s.head(2)
-Its output is as follows −
-The original series is:
-0   0.720876
-1  -0.765898
-2   0.479221
-3  -0.139547
-dtype: float64
+print(s).head(2)
+
 
 ```
 
 
 ```python
-The first two rows of the data series:
-0   0.720876
-1  -0.765898
-dtype: float64
+
 tail() returns the last n rows(observe the index values). The default number of elements to display is five, but you may pass a custom number.
 import pandas as pd
 import numpy as np
@@ -208,7 +176,7 @@ import numpy as np
 #Create a series with 4 random numbers
 s = pd.Series(np.random.randn(4))
 print ("The original series is:")
-print s
+print(s)
 ```
 
 
@@ -216,7 +184,7 @@ print s
 
 
 print ("The last two rows of the data series:")
-print s.tail(2)
+print(s).tail(2)
 Its output is as follows −
 The original series is:
 0 -0.655091
@@ -297,17 +265,9 @@ d = {'Name':pd.Series(['Tom','James','Ricky','Vin','Steve','Smith','Jack']),
 #Create a DataFrame
 df = pd.DataFrame(d)
 print ("Our data series is:")
-print df
+print(df)
 Its output is as follows −
-Our data series is:
-    Age   Name    Rating
-0   25    Tom     4.23
-1   26    James   3.24
-2   25    Ricky   3.98
-3   23    Vin     2.56
-4   30    Steve   3.20
-5   29    Smith   4.60
-6   23    Jack    3.80
+
 ```
 
 
@@ -325,7 +285,7 @@ d = {'Name':pd.Series(['Tom','James','Ricky','Vin','Steve','Smith','Jack']),
 # Create a DataFrame
 df = pd.DataFrame(d)
 print ("The transpose of the data series is:")
-print df.T
+print(df).T
 Its output is as follows −
 ```
 
@@ -351,7 +311,7 @@ d = {'Name':pd.Series(['Tom','James','Ricky','Vin','Steve','Smith','Jack']),
 #Create a DataFrame
 df = pd.DataFrame(d)
 print ("Row axis labels and column axis labels are:")
-print df.axes
+print(df).axes
 ```
 
 
@@ -375,7 +335,7 @@ d = {'Name':pd.Series(['Tom','James','Ricky','Vin','Steve','Smith','Jack']),
 #Create a DataFrame
 df = pd.DataFrame(d)
 print ("The data types of each column are:")
-print df.dtypes
+print(df).dtypes
 Its output is as follows −
 The data types of each column are:
 Age     int64
@@ -399,7 +359,7 @@ d = {'Name':pd.Series(['Tom','James','Ricky','Vin','Steve','Smith','Jack']),
 #Create a DataFrame
 df = pd.DataFrame(d)
 print ("Is the object empty?")
-print df.empty
+print(df).empty
 Its output is as follows −
 Is the object empty?
 False
@@ -428,9 +388,9 @@ d = {'Name':pd.Series(['Tom','James','Ricky','Vin','Steve','Smith','Jack']),
 #Create a DataFrame
 df = pd.DataFrame(d)
 print ("Our object is:")
-print df
+print(df)
 print ("The dimension of the object is:")
-print df.ndim
+print(df).ndim
 Its output is as follows −
 Our object is:
       Age    Name     Rating
@@ -464,9 +424,9 @@ d = {'Name':pd.Series(['Tom','James','Ricky','Vin','Steve','Smith','Jack']),
 #Create a DataFrame
 df = pd.DataFrame(d)
 print ("Our object is:")
-print df
+print(df)
 print ("The shape of the object is:")
-print df.shape
+print(df).shape
 Its output is as follows −
 Our object is:
    Age   Name    Rating
@@ -503,19 +463,10 @@ d = {'Name':pd.Series(['Tom','James','Ricky','Vin','Steve','Smith','Jack']),
 #Create a DataFrame
 df = pd.DataFrame(d)
 print ("Our object is:")
-print df
+print(df)
 print ("The total number of elements in our object is:")
-print df.size
-Its output is as follows −
-Our object is:
-    Age   Name    Rating
-0   25    Tom     4.23
-1   26    James   3.24
-2   25    Ricky   3.98
-3   23    Vin     2.56
-4   30    Steve   3.20
-5   29    Smith   4.60
-6   23    Jack    3.80
+print(df.size)
+
 
 
 ```
@@ -526,6 +477,11 @@ The total number of elements in our object is:
 21
 values
 Returns the actual data in the DataFrame as an NDarray.
+```
+
+
+```python
+
 import pandas as pd
 import numpy as np
  
@@ -537,9 +493,9 @@ d = {'Name':pd.Series(['Tom','James','Ricky','Vin','Steve','Smith','Jack']),
 #Create a DataFrame
 df = pd.DataFrame(d)
 print ("Our object is:")
-print df
+print(df)
 print ("The actual data in our data frame is:")
-print df.values
+print(df).values
 Its output is as follows −
 Our object is:
     Age   Name    Rating
@@ -581,9 +537,9 @@ d = {'Name':pd.Series(['Tom','James','Ricky','Vin','Steve','Smith','Jack']),
 #Create a DataFrame
 df = pd.DataFrame(d)
 print ("Our data frame is:")
-print df
+print(df)
 print ("The first two rows of the data frame is:")
-print df.head(2)
+print(df).head(2)
 ```
 
 
@@ -621,9 +577,9 @@ d = {'Name':pd.Series(['Tom','James','Ricky','Vin','Steve','Smith','Jack']),
 #Create a DataFrame
 df = pd.DataFrame(d)
 print ("Our data frame is:")
-print df
+print(df)
 print ("The last two rows of the data frame is:")
-print df.tail(2)
+print(df).tail(2)
 
 ```
 
